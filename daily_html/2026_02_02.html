@@ -213,88 +213,22 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">Beyond Pixels: Visual Metaphor Transfer via Schema-Driven Agentic Reasoning</h2>
-            <p class="paper-summary">A visual metaphor constitutes a high-order form of human creativity, employing cross-domain semantic fusion to transform abstract concepts into impactful visual rhetoric. Despite the remarkable progress of generative AI, existing models remain largely confined to pixel-level instruction alignment and surface-level appearance preservation, failing to capture the underlying abstract logic necessary for genuine metaphorical generation. To bridge this gap, we introduce the task of Visual Metaphor Transfer (VMT), which challenges models to autonomously decouple the "creative essence" from a reference image and re-materialize that abstract logic onto a user-specified target subject. We propose a cognitive-inspired, multi-agent framework that operationalizes Conceptual Blending Theory (CBT) through a novel Schema Grammar ("G"). This structured representation decouples relational invariants from specific visual entities, providing a rigorous foundation for cross-domain logic re-instantiation. Our pipeline executes VMT through a collaborative system of specialized agents: a perception agent that distills the reference into a schema, a transfer agent that maintains generic space invariance to discover apt carriers, a generation agent for high-fidelity synthesis and a hierarchical diagnostic agent that mimics a professional critic, performing closed-loop backtracking to identify and rectify errors across abstract logic, component selection, and prompt encoding. Extensive experiments and human evaluations demonstrate that our method significantly outperforms SOTA baselines in metaphor consistency, analogy appropriateness, and visual creativity, paving the way for automated high-impact creative applications in advertising and media. Source code will be made publicly available.</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces Visual Metaphor Transfer (VMT), a new task where a model autonomously transfers the core concept of a reference image onto a user-defined subject using a schema-driven, multi-agent framework inspired by Conceptual Blending Theory. Experiments show the method outperforms SOTA baselines.</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: 本文提出了视觉隐喻迁移（VMT）任务，模型使用受概念混合理论启发的模式驱动多智能体框架，自主地将参考图像的核心概念转移到用户定义的主题上。实验表明该方法优于SOTA基线。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">OASIS-DC: Generalizable Depth Completion via Output-level Alignment of Sparse-Integrated Monocular Pseudo Depth</h2>
+            <p class="paper-summary">Recent monocular foundation models excel at zero-shot depth estimation, yet their outputs are inherently relative rather than metric, limiting direct use in robotics and autonomous driving. We leverage the fact that relative depth preserves global layout and boundaries: by calibrating it with sparse range measurements, we transform it into a pseudo metric depth prior. Building on this prior, we design a refinement network that follows the prior where reliable and deviates where necessary, enabling accurate metric predictions from very few labeled samples. The resulting system is particularly effective when curated validation data are unavailable, sustaining stable scale and sharp edges across few-shot regimes. These findings suggest that coupling foundation priors with sparse anchors is a practical route to robust, deployment-ready depth completion under real-world label scarcity.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.01335v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01268v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Yu Xu, Yuxin Zhang, Juan Cao, Lin Gao, Chunyu Wang, Oliver Deussen, Tong-Yee Lee, Fan Tang</p>
+            <p class="paper-authors">Authors: Jaehyeon Cho, Jhonghyun An</p>
             
         </motion.div>
         
@@ -306,88 +240,22 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">FlowCast: Trajectory Forecasting for Scalable Zero-Cost Speculative Flow Matching</h2>
-            <p class="paper-summary">Flow Matching (FM) has recently emerged as a powerful approach for high-quality visual generation. However, their prohibitively slow inference due to a large number of denoising steps limits their potential use in real-time or interactive applications. Existing acceleration methods, like distillation, truncation, or consistency training, either degrade quality, incur costly retraining, or lack generalization. We propose FlowCast, a training-free speculative generation framework that accelerates inference by exploiting the fact that FM models are trained to preserve constant velocity. FlowCast speculates future velocity by extrapolating current velocity without incurring additional time cost, and accepts it if it is within a mean-squared error threshold. This constant-velocity forecasting allows redundant steps in stable regions to be aggressively skipped while retaining precision in complex ones. FlowCast is a plug-and-play framework that integrates seamlessly with any FM model and requires no auxiliary networks. We also present a theoretical analysis and bound the worst-case deviation between speculative and full FM trajectories. Empirical evaluations demonstrate that FlowCast achieves $>2.5\times$ speedup in image generation, video generation, and editing tasks, outperforming existing baselines with no quality loss as compared to standard full generation.</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: FlowCast is a training-free speculative generation framework that accelerates Flow Matching inference by extrapolating velocity, achieving significant speedups in image and video generation without quality loss.</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: FlowCast是一个无需训练的推测性生成框架，通过外推速度来加速Flow Matching的推理，在图像和视频生成中实现了显著的加速，且没有质量损失。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">Reinforcement Learning for Active Perception in Autonomous Navigation</h2>
+            <p class="paper-summary">This paper addresses the challenge of active perception within autonomous navigation in complex, unknown environments. Revisiting the foundational principles of active perception, we introduce an end-to-end reinforcement learning framework in which a robot must not only reach a goal while avoiding obstacles, but also actively control its onboard camera to enhance situational awareness. The policy receives observations comprising the robot state, the current depth frame, and a particularly local geometry representation built from a short history of depth readings. To couple collision-free motion planning with information-driven active camera control, we augment the navigation reward with a voxel-based information metric. This enables an aerial robot to learn a robust policy that balances goal-directed motion with exploratory sensing. Extensive evaluation demonstrates that our strategy achieves safer flight compared to using fixed, non-actuated camera baselines while also inducing intrinsic exploratory behaviors.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.01329v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01266v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Divya Jyoti Bajpai, Shubham Agarwal, Apoorv Saxena, Kuldeep Kulkarni, Subrata Mitra, Manjesh Kumar Hanawal</p>
+            <p class="paper-authors">Authors: Grzegorz Malczyk, Mihir Kulkarni, Kostas Alexis</p>
             
         </motion.div>
         
@@ -399,88 +267,22 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">ReDiStory: Region-Disentangled Diffusion for Consistent Visual Story Generation</h2>
-            <p class="paper-summary">Generating coherent visual stories requires maintaining subject identity across multiple images while preserving frame-specific semantics. Recent training-free methods concatenate identity and frame prompts into a unified representation, but this often introduces inter-frame semantic interference that weakens identity preservation in complex stories. We propose ReDiStory, a training-free framework that improves multi-frame story generation via inference-time prompt embedding reorganization. ReDiStory explicitly decomposes text embeddings into identity-related and frame-specific components, then decorrelates frame embeddings by suppressing shared directions across frames. This reduces cross-frame interference without modifying diffusion parameters or requiring additional supervision. Under identical diffusion backbones and inference settings, ReDiStory improves identity consistency while maintaining prompt fidelity. Experiments on the ConsiStory+ benchmark show consistent gains over 1Prompt1Story on multiple identity consistency metrics. Code is available at: https://github.com/YuZhenyuLindy/ReDiStory</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: The paper presents ReDiStory, a training-free framework for consistent visual story generation that improves identity preservation by explicitly decomposing and decorrelating text embeddings at inference time to reduce cross-frame semantic interference.</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: 该论文提出了ReDiStory，一个用于一致视觉故事生成的免训练框架。它通过在推理时显式分解和解耦文本嵌入来减少跨帧语义干扰，从而提高身份保持能力。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">SkySim: A ROS2-based Simulation Environment for Natural Language Control of Drone Swarms using Large Language Models</h2>
+            <p class="paper-summary">Unmanned Aerial Vehicle (UAV) swarms offer versatile applications in logistics, agriculture, and surveillance, yet controlling them requires expert knowledge for safety and feasibility. Traditional static methods limit adaptability, while Large Language Models (LLMs) enable natural language control but generate unsafe trajectories due to lacking physical grounding. This paper introduces SkySim, a ROS2-based simulation framework in Gazebo that decouples LLM high-level planning from low-level safety enforcement. Using Gemini 3.5 Pro, SkySim translates user commands (e.g., "Form a circle") into spatial waypoints, informed by real-time drone states. An Artificial Potential Field (APF) safety filter applies minimal adjustments for collision avoidance, kinematic limits, and geo-fencing, ensuring feasible execution at 20 Hz. Experiments with swarms of 3, 10, and 30 Crazyflie drones validate spatial reasoning accuracy (100% across tested geometric primitives), real-time collision prevention, and scalability. SkySim empowers non-experts to iteratively refine behaviors, bridging AI cognition with robotic safety for dynamic environments. Future work targets hardware integration.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.01303v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01226v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Ayushman Sarkar, Zhenyu Yu, Chu Chen, Wei Tang, Kangning Cui, Mohd Yamani Idna Idris</p>
+            <p class="paper-authors">Authors: Aditya Shibu, Marah Saleh, Mohamed Al-Musleh, Nidhal Abdulaziz</p>
             
         </motion.div>
         
@@ -492,88 +294,22 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">Gradient-Aligned Calibration for Post-Training Quantization of Diffusion Models</h2>
-            <p class="paper-summary">Diffusion models have shown remarkable performance in image synthesis by progressively estimating a smooth transition from a Gaussian distribution of noise to a real image. Unfortunately, their practical deployment is limited by slow inference speed, high memory usage, and the computational demands of the noise estimation process. Post-training quantization (PTQ) emerges as a promising solution to accelerate sampling and reduce memory overhead for diffusion models. Existing PTQ methods for diffusion models typically apply uniform weights to calibration samples across timesteps, which is sub-optimal since data at different timesteps may contribute differently to the diffusion process. Additionally, due to varying activation distributions and gradients across timesteps, a uniform quantization approach is sub-optimal. Each timestep requires a different gradient direction for optimal quantization, and treating them equally can lead to conflicting gradients that degrade performance. In this paper, we propose a novel PTQ method that addresses these challenges by assigning appropriate weights to calibration samples. Specifically, our approach learns to assign optimal weights to calibration samples to align the quantized model's gradients across timesteps, facilitating the quantization process. Extensive experiments on CIFAR-10, LSUN-Bedrooms, and ImageNet demonstrate the superiority of our method compared to other PTQ methods for diffusion models.</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: This paper introduces a novel post-training quantization (PTQ) method for diffusion models that learns to assign optimal weights to calibration samples to align gradients across timesteps, improving quantization performance.</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: 本文提出了一种新的扩散模型后训练量化(PTQ)方法，该方法学习为校准样本分配最佳权重，以对齐各个时间步长的梯度，从而提高量化性能。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">SPOT: Spatio-Temporal Obstacle-free Trajectory Planning for UAVs in an Unknown Dynamic Environment</h2>
+            <p class="paper-summary">We address the problem of reactive motion planning for quadrotors operating in unknown environments with dynamic obstacles. Our approach leverages a 4-dimensional spatio-temporal planner, integrated with vision-based Safe Flight Corridor (SFC) generation and trajectory optimization. Unlike prior methods that rely on map fusion, our framework is mapless, enabling collision avoidance directly from perception while reducing computational overhead. Dynamic obstacles are detected and tracked using a vision-based object segmentation and tracking pipeline, allowing robust classification of static versus dynamic elements in the scene. To further enhance robustness, we introduce a backup planning module that reactively avoids dynamic obstacles when no direct path to the goal is available, mitigating the risk of collisions during deadlock situations. We validate our method extensively in both simulation and real-world hardware experiments, and benchmark it against state-of-the-art approaches, showing significant advantages for reactive UAV navigation in dynamic, unknown environments.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.01289v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01189v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Dung Anh Hoang, Cuong Pham anh Trung Le, Jianfei Cai, Toan Do</p>
+            <p class="paper-authors">Authors: Astik Srivastava, Thomas J Chackenkulam. Bitla Bhanu Teja, Antony Thomas, Madhava Krishna</p>
             
         </motion.div>
         
@@ -585,88 +321,22 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">PISA: Piecewise Sparse Attention Is Wiser for Efficient Diffusion Transformers</h2>
-            <p class="paper-summary">Diffusion Transformers are fundamental for video and image generation, but their efficiency is bottlenecked by the quadratic complexity of attention. While block sparse attention accelerates computation by attending only critical key-value blocks, it suffers from degradation at high sparsity by discarding context. In this work, we discover that attention scores of non-critical blocks exhibit distributional stability, allowing them to be approximated accurately and efficiently rather than discarded, which is essentially important for sparse attention design. Motivated by this key insight, we propose PISA, a training-free Piecewise Sparse Attention that covers the full attention span with sub-quadratic complexity. Unlike the conventional keep-or-drop paradigm that directly drop the non-critical block information, PISA introduces a novel exact-or-approximate strategy: it maintains exact computation for critical blocks while efficiently approximating the remainder through block-wise Taylor expansion. This design allows PISA to serve as a faithful proxy to full attention, effectively bridging the gap between speed and quality. Experimental results demonstrate that PISA achieves 1.91 times and 2.57 times speedups on Wan2.1-14B and Hunyuan-Video, respectively, while consistently maintaining the highest quality among sparse attention methods. Notably, even for image generation on FLUX, PISA achieves a 1.2 times acceleration without compromising visual quality. Code is available at: https://github.com/xie-lab-ml/piecewise-sparse-attention.</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces Piecewise Sparse Attention (PISA), a training-free method for efficient diffusion transformers in video and image generation, achieving speedups by approximating non-critical attention blocks using Taylor expansion while maintaining high quality.</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: 该论文介绍了一种名为分段稀疏注意力（PISA）的免训练方法，用于高效地进行视频和图像生成中的扩散变换，通过使用泰勒展开逼近非关键注意力块来实现加速，同时保持高质量。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">Latent Reasoning VLA: Latent Thinking and Prediction for Vision-Language-Action Models</h2>
+            <p class="paper-summary">Vision-Language-Action (VLA) models benefit from chain-of-thought (CoT) reasoning, but existing approaches incur high inference overhead and rely on discrete reasoning representations that mismatch continuous perception and control. We propose Latent Reasoning VLA (\textbf{LaRA-VLA}), a unified VLA framework that internalizes multi-modal CoT reasoning into continuous latent representations for embodied action. LaRA-VLA performs unified reasoning and prediction in latent space, eliminating explicit CoT generation at inference time and enabling efficient, action-oriented control. To realize latent embodied reasoning, we introduce a curriculum-based training paradigm that progressively transitions from explicit textual and visual CoT supervision to latent reasoning, and finally adapts latent reasoning dynamics to condition action generation. We construct two structured CoT datasets and evaluate LaRA-VLA on both simulation benchmarks and long-horizon real-robot manipulation tasks. Experimental results show that LaRA-VLA consistently outperforms state-of-the-art VLA methods while reducing inference latency by up to 90\% compared to explicit CoT-based approaches, demonstrating latent reasoning as an effective and efficient paradigm for real-time embodied control. Project Page: \href{https://loveju1y.github.io/Latent-Reasoning-VLA/}{LaRA-VLA Website}.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.01077v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01166v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Haopeng Li, Shitong Shao, Wenliang Zhong, Zikai Zhou, Lichen Bai, Hui Xiong, Zeke Xie</p>
+            <p class="paper-authors">Authors: Shuanghao Bai, Jing Lyu, Wanqi Zhou, Zhe Li, Dakai Wang, Lei Xing, Xiaoguang Zhao, Pengwei Wang, Zhongyuan Wang, Cheng Chi, Badong Chen, Shanghang Zhang</p>
             
         </motion.div>
         
@@ -678,88 +348,22 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">DIAMOND: Directed Inference for Artifact Mitigation in Flow Matching Models</h2>
-            <p class="paper-summary">Despite impressive results from recent text-to-image models like FLUX, visual and anatomical artifacts remain a significant hurdle for practical and professional use. Existing methods for artifact reduction, typically work in a post-hoc manner, consequently failing to intervene effectively during the core image formation process. Notably, current techniques require problematic and invasive modifications to the model weights, or depend on a computationally expensive and time-consuming process of regional refinement. To address these limitations, we propose DIAMOND, a training-free method that applies trajectory correction to mitigate artifacts during inference. By reconstructing an estimate of the clean sample at every step of the generative trajectory, DIAMOND actively steers the generation process away from latent states that lead to artifacts. Furthermore, we extend the proposed method to standard Diffusion Models, demonstrating that DIAMOND provides a robust, zero-shot path to high-fidelity, artifact-free image synthesis without the need for additional training or weight modifications in modern generative architectures. Code is available at https://gmum.github.io/DIAMOND/</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: DIAMOND is a training-free inference method for flow matching and diffusion models that mitigates visual artifacts by actively steering the generative process, leading to higher fidelity images without retraining.</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: "DIAMOND"是一种无需训练的推理方法，适用于流匹配和扩散模型，通过主动引导生成过程来减轻视觉伪影，从而无需重新训练即可获得更高保真度的图像。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">Improving Robustness of Vision-Language-Action Models by Restoring Corrupted Visual Inputs</h2>
+            <p class="paper-summary">Vision-Language-Action (VLA) models have emerged as a dominant paradigm for generalist robotic manipulation, unifying perception and control within a single end-to-end architecture. However, despite their success in controlled environments, reliable real-world deployment is severely hindered by their fragility to visual disturbances. While existing literature extensively addresses physical occlusions caused by scene geometry, a critical mode remains largely unexplored: image corruptions. These sensor-level artifacts, ranging from electronic noise and dead pixels to lens contaminants, directly compromise the integrity of the visual signal prior to interpretation. In this work, we quantify this vulnerability, demonstrating that state-of-the-art VLAs such as $π_{0.5}$ and SmolVLA, suffer catastrophic performance degradation, dropping from 90\% success rates to as low as 2\%, under common signal artifacts. To mitigate this, we introduce the Corruption Restoration Transformer (CRT), a plug-and-play and model-agnostic vision transformer designed to immunize VLA models against sensor disturbances. Leveraging an adversarial training objective, CRT restores clean observations from corrupted inputs without requiring computationally expensive fine-tuning of the underlying model. Extensive experiments across the LIBERO and Meta-World benchmarks demonstrate that CRT effectively recovers lost performance, enabling VLAs to maintain near-baseline success rates, even under severe visual corruption.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.00883v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01158v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Alicja Polowczyk, Agnieszka Polowczyk, Piotr Borycki, Joanna Waczyńska, Jacek Tabor, Przemysław Spurek</p>
+            <p class="paper-authors">Authors: Daniel Yezid Guarnizo Orjuela, Leonardo Scappatura, Veronica Di Gennaro, Riccardo Andrea Izzo, Gianluca Bardaro, Matteo Matteucci</p>
             
         </motion.div>
         
@@ -771,88 +375,22 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">T2M Mamba: Motion Periodicity-Saliency Coupling Approach for Stable Text-Driven Motion Generation</h2>
-            <p class="paper-summary">Text-to-motion generation, which converts motion language descriptions into coherent 3D human motion sequences, has attracted increasing attention in fields, such as avatar animation and humanoid robotic interaction. Though existing models have achieved significant fidelity, they still suffer from two core limitations: (i) They treat motion periodicity and keyframe saliency as independent factors, overlooking their coupling and causing generation drift in long sequences. (ii) They are fragile to semantically equivalent paraphrases, where minor synonym substitutions distort textual embeddings, propagating through the decoder and producing unstable or erroneous motions. In this work, we propose T2M Mamba to address these limitations by (i) proposing Periodicity-Saliency Aware Mamba, which utilizes novel algorithms for keyframe weight estimation via enhanced Density Peaks Clustering and motion periodicity estimation via FFT-accelerated autocorrelation to capture coupled dynamics with minimal computational overhead, and (ii) constructing a Periodic Differential Cross-modal Alignment Module (PDCAM) to enhance robust alignment of textual and motion embeddings. Extensive experiments on HumanML3D and KIT-ML datasets have been conducted, confirming the effectiveness of our approach, achieving an FID of 0.068 and consistent gains on all other metrics.</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: The paper introduces T2M Mamba, a new approach for text-to-motion generation addressing limitations in existing models by considering the coupling between motion periodicity and keyframe saliency and improving robustness to paraphrases through a Periodicity-Saliency Aware Mamba and a Periodic Differential Cross-modal Alignment Module (PDCAM).</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍了一种新的文本到动作生成方法 T2M Mamba，通过考虑运动周期性和关键帧显著性之间的耦合以及通过周期性-显著性感知 Mamba 和周期性差分跨模态对齐模块 (PDCAM) 提高对释义的鲁棒性，从而解决现有模型的局限性。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">PolicyFlow: Policy Optimization with Continuous Normalizing Flow in Reinforcement Learning</h2>
+            <p class="paper-summary">Among on-policy reinforcement learning algorithms, Proximal Policy Optimization (PPO) demonstrates is widely favored for its simplicity, numerical stability, and strong empirical performance. Standard PPO relies on surrogate objectives defined via importance ratios, which require evaluating policy likelihood that is typically straightforward when the policy is modeled as a Gaussian distribution. However, extending PPO to more expressive, high-capacity policy models such as continuous normalizing flows (CNFs), also known as flow-matching models, is challenging because likelihood evaluation along the full flow trajectory is computationally expensive and often numerically unstable. To resolve this issue, we propose PolicyFlow, a novel on-policy CNF-based reinforcement learning algorithm that integrates expressive CNF policies with PPO-style objectives without requiring likelihood evaluation along the full flow path. PolicyFlow approximates importance ratios using velocity field variations along a simple interpolation path, reducing computational overhead without compromising training stability. To further prevent mode collapse and further encourage diverse behaviors, we propose the Brownian Regularizer, an implicit policy entropy regularizer inspired by Brownian motion, which is conceptually elegant and computationally lightweight. Experiments on diverse tasks across various environments including MultiGoal, PointMaze, IsaacLab and MuJoCo Playground show that PolicyFlow achieves competitive or superior performance compared to PPO using Gaussian policies and flow-based baselines including FPO and DPPO. Notably, results on MultiGoal highlight PolicyFlow's ability to capture richer multimodal action distributions.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star-half-alt"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.01352v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01156v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Xingzu Zhan, Chen Xie, Honghang Chen, Yixun Lin, Xiaochun Mai</p>
+            <p class="paper-authors">Authors: Shunpeng Yang, Ben Liu, Hua Chen</p>
             
         </motion.div>
         
@@ -864,95 +402,596 @@
             class="bento-item"
             data-motion-element
         >
-            <h2 class="paper-title">Adaptive Visual Autoregressive Acceleration via Dual-Linkage Entropy Analysis</h2>
-            <p class="paper-summary">Visual AutoRegressive modeling (VAR) suffers from substantial computational cost due to the massive token count involved. Failing to account for the continuous evolution of modeling dynamics, existing VAR token reduction methods face three key limitations: heuristic stage partition, non-adaptive schedules, and limited acceleration scope, thereby leaving significant acceleration potential untapped. Since entropy variation intrinsically reflects the transition of predictive uncertainty, it offers a principled measure to capture modeling dynamics evolution. Therefore, we propose NOVA, a training-free token reduction acceleration framework for VAR models via entropy analysis. NOVA adaptively determines the acceleration activation scale during inference by online identifying the inflection point of scale entropy growth. Through scale-linkage and layer-linkage ratio adjustment, NOVA dynamically computes distinct token reduction ratios for each scale and layer, pruning low-entropy tokens while reusing the cache derived from the residuals at the prior scale to accelerate inference and maintain generation quality. Extensive experiments and analyses validate NOVA as a simple yet effective training-free acceleration framework.</p>
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: This paper introduces NOVA, a training-free token reduction framework for Visual AutoRegressive models that adaptively accelerates inference by analyzing entropy variation to prune low-entropy tokens, enhancing efficiency without sacrificing generation quality.</p>
-            
-            
-            <p class="paper-tldr"><strong>TLDR</strong>: 本文介绍了一种名为NOVA的视觉自回归模型（VAR）的免训练令牌缩减框架。通过分析熵变，自适应地加速推理过程，从而裁剪低熵令牌，提高效率且不牺牲生成质量。</p>
-            
-
-            
-            
-            <div class="paper-sub-ratings" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 5px; font-size: 0.8em;">
-                
-                <div class="rating-item">
-                    <span class="rating-label">Relevance:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Novelty:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(8/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Clarity:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-xs text-gray-500 ml-1">(9/10)</span>
-                </div>
-                
-                
-                <div class="rating-item">
-                    <span class="rating-label">Potential Impact:</span>
-                    
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    <span class="text-xs text-gray-500 ml-1">(7/10)</span>
-                </div>
-                
-            </div>
+            <h2 class="paper-title">UniForce: A Unified Latent Force Model for Robot Manipulation with Diverse Tactile Sensors</h2>
+            <p class="paper-summary">Force sensing is essential for dexterous robot manipulation, but scaling force-aware policy learning is hindered by the heterogeneity of tactile sensors. Differences in sensing principles (e.g., optical vs. magnetic), form factors, and materials typically require sensor-specific data collection, calibration, and model training, thereby limiting generalisability. We propose UniForce, a novel unified tactile representation learning framework that learns a shared latent force space across diverse tactile sensors. UniForce reduces cross-sensor domain shift by jointly modeling inverse dynamics (image-to-force) and forward dynamics (force-to-image), constrained by force equilibrium and image reconstruction losses to produce force-grounded representations. To avoid reliance on expensive external force/torque (F/T) sensors, we exploit static equilibrium and collect force-paired data via direct sensor--object--sensor interactions, enabling cross-sensor alignment with contact force. The resulting universal tactile encoder can be plugged into downstream force-aware robot manipulation tasks with zero-shot transfer, without retraining or finetuning. Extensive experiments on heterogeneous tactile sensors including GelSight, TacTip, and uSkin, demonstrate consistent improvements in force estimation over prior methods, and enable effective cross-sensor coordination in Vision-Tactile-Language-Action (VTLA) models for a robotic wiping task. Code and datasets will be released.</p>
             
             
 
             
-            <div class="paper-rating">
-                <span class="rating-label" style="color: #000; font-weight: bold;">Overall:</span>
-                
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star"></i>
-                    
-                
-                    
-                        <i class="fas fa-star-half-alt"></i>
-                    
-                
-                    
-                        <i class="far fa-star"></i>
-                    
-                
-                <span class="text-xs text-gray-500 ml-1">(7/10)</span>
-            </div>
+            
             
 
-            <a href="http://arxiv.org/abs/2602.01345v1" target="_blank" class="paper-link">
+            
+
+            <a href="http://arxiv.org/abs/2602.01153v1" target="_blank" class="paper-link">
                 <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
             </a>
             
-            <p class="paper-authors">Authors: Yu Zhang, Jingyi Liu, Feng Liu, Duoqian Miao, Qi Zhang, Kexue Fu, Changwei Wang, Longbing Cao</p>
+            <p class="paper-authors">Authors: Zhuo Chen, Fei Ni, Kaiyao Luo, Zhiyuan Wu, Xuyang Zhang, Emmanouil Spyrakos-Papastavridis, Lorenzo Jamone, Nathan F. Lepora, Jiankang Deng, Shan Luo</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.4, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">KAN We Flow? Advancing Robotic Manipulation with 3D Flow Matching via KAN & RWKV</h2>
+            <p class="paper-summary">Diffusion-based visuomotor policies excel at modeling action distributions but are inference-inefficient, since recursively denoising from noise to policy requires many steps and heavy UNet backbones, which hinders deployment on resource-constrained robots. Flow matching alleviates the sampling burden by learning a one-step vector field, yet prior implementations still inherit large UNet-style architectures. In this work, we present KAN-We-Flow, a flow-matching policy that draws on recent advances in Receptance Weighted Key Value (RWKV) and Kolmogorov-Arnold Networks (KAN) from vision to build a lightweight and highly expressive backbone for 3D manipulation. Concretely, we introduce an RWKV-KAN block: an RWKV first performs efficient time/channel mixing to propagate task context, and a subsequent GroupKAN layer applies learnable spline-based, groupwise functional mappings to perform feature-wise nonlinear calibration of the action mapping on RWKV outputs. Moreover, we introduce an Action Consistency Regularization (ACR), a lightweight auxiliary loss that enforces alignment between predicted action trajectories and expert demonstrations via Euler extrapolation, providing additional supervision to stabilize training and improve policy precision. Without resorting to large UNets, our design reduces parameters by 86.8\%, maintains fast runtime, and achieves state-of-the-art success rates on Adroit, Meta-World, and DexArt benchmarks. Our project page can be viewed in \href{https://zhihaochen-2003.github.io/KAN-We-Flow.github.io/}{\textcolor{red}{link}}</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01115v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Zhihao Chen, Yiyuan Ge, Ziyang Wang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.45, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">StreamVLA: Breaking the Reason-Act Cycle via Completion-State Gating</h2>
+            <p class="paper-summary">Long-horizon robotic manipulation requires bridging the gap between high-level planning (System 2) and low-level control (System 1). Current Vision-Language-Action (VLA) models often entangle these processes, performing redundant multimodal reasoning at every timestep, which leads to high latency and goal instability. To address this, we present StreamVLA, a dual-system architecture that unifies textual task decomposition, visual goal imagination, and continuous action generation within a single parameter-efficient backbone. We introduce a "Lock-and-Gated" mechanism to intelligently modulate computation: only when a sub-task transition is detected, the model triggers slow thinking to generate a textual instruction and imagines the specific visual completion state, rather than generic future frames. Crucially, this completion state serves as a time-invariant goal anchor, making the policy robust to execution speed variations. During steady execution, these high-level intents are locked to condition a Flow Matching action head, allowing the model to bypass expensive autoregressive decoding for 72% of timesteps. This hierarchical abstraction ensures sub-goal focus while significantly reducing inference latency. Extensive evaluations demonstrate that StreamVLA achieves state-of-the-art performance, with a 98.5% success rate on the LIBERO benchmark and robust recovery in real-world interference scenarios, achieving a 48% reduction in latency compared to full-reasoning baselines.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01100v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Hang Wu, Tongqing Chen, Jiasen Wang, Xiaotao Li, Lu Fang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.5, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Failure-Aware Bimanual Teleoperation via Conservative Value Guided Assistance</h2>
+            <p class="paper-summary">Teleoperation of high-precision manipulation is con-strained by tight success tolerances and complex contact dy-namics, which make impending failures difficult for human operators to anticipate under partial observability. This paper proposes a value-guided, failure-aware framework for bimanual teleoperation that provides compliant haptic assistance while pre-serving continuous human authority. The framework is trained entirely from heterogeneous offline teleoperation data containing both successful and failed executions. Task feasibility is mod-eled as a conservative success score learned via Conservative Value Learning, yielding a risk-sensitive estimate that remains reliable under distribution shift. During online operation, the learned success score regulates the level of assistance, while a learned actor provides a corrective motion direction. Both are integrated through a joint-space impedance interface on the master side, yielding continuous guidance that steers the operator away from failure-prone actions without overriding intent. Experimental results on contact-rich manipulation tasks demonstrate improved task success rates and reduced operator workload compared to conventional teleoperation and shared-autonomy baselines, indicating that conservative value learning provides an effective mechanism for embedding failure awareness into bilateral teleoperation. Experimental videos are available at https://www.youtube.com/watch?v=XDTsvzEkDRE</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01092v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Peng Zhou, Zhongxuan Li, Jinsong Wu, Jiaming Qi, Jun Hu, David Navarro-Alarcon, Jia Pan, Lihua Xie, Shiyao Zhang, Zeqing Zhang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.55, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Estimating Force Interactions of Deformable Linear Objects from their Shapes</h2>
+            <p class="paper-summary">This work introduces an analytical approach for detecting and estimating external forces acting on deformable linear objects (DLOs) using only their observed shapes. In many robot-wire interaction tasks, contact occurs not at the end-effector but at other points along the robot's body. Such scenarios arise when robots manipulate wires indirectly (e.g., by nudging) or when wires act as passive obstacles in the environment. Accurately identifying these interactions is crucial for safe and efficient trajectory planning, helping to prevent wire damage, avoid restricted robot motions, and mitigate potential hazards. Existing approaches often rely on expensive external force-torque sensor or that contacts occur at the end-effector for accurate force estimation. Using wire shape information acquired from a depth camera and under the assumption that the wire is in or near its static equilibrium, our method estimates both the location and magnitude of external forces without additional prior knowledge. This is achieved by exploiting derived consistency conditions and solving a system of linear equations based on force-torque balance along the wire. The approach was validated through simulation, where it achieved high accuracy, and through real-world experiments, where accurate estimation was demonstrated in selected interaction scenarios.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01085v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Qi Jing Chen, Shilin Shan, Timothy Bretl, Quang-Cuong Pham</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.6000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">A Systematic Study of Data Modalities and Strategies for Co-training Large Behavior Models for Robot Manipulation</h2>
+            <p class="paper-summary">Large behavior models have shown strong dexterous manipulation capabilities by extending imitation learning to large-scale training on multi-task robot data, yet their generalization remains limited by the insufficient robot data coverage. To expand this coverage without costly additional data collection, recent work relies on co-training: jointly learning from target robot data and heterogeneous data modalities. However, how different co-training data modalities and strategies affect policy performance remains poorly understood. We present a large-scale empirical study examining five co-training data modalities: standard vision-language data, dense language annotations for robot trajectories, cross-embodiment robot data, human videos, and discrete robot action tokens across single- and multi-phase training strategies. Our study leverages 4,000 hours of robot and human manipulation data and 50M vision-language samples to train vision-language-action policies. We evaluate 89 policies over 58,000 simulation rollouts and 2,835 real-world rollouts. Our results show that co-training with forms of vision-language and cross-embodiment robot data substantially improves generalization to distribution shifts, unseen tasks, and language following, while discrete action token variants yield no significant benefits. Combining effective modalities produces cumulative gains and enables rapid adaptation to unseen long-horizon dexterous tasks via fine-tuning. Training exclusively on robot data degrades the visiolinguistic understanding of the vision-language model backbone, while co-training with effective modalities restores these capabilities. Explicitly conditioning action generation on chain-of-thought traces learned from co-training data does not improve performance in our simulation benchmark. Together, these results provide practical guidance for building scalable generalist robot policies.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01067v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Fanqi Lin, Kushal Arora, Jean Mercat, Haruki Nishimura, Paarth Shah, Chen Xu, Mengchao Zhang, Mark Zolotas, Maya Angeles, Owen Pfannenstiehl, Andrew Beaulieu, Jose Barreiros</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.65, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">StepNav: Structured Trajectory Priors for Efficient and Multimodal Visual Navigation</h2>
+            <p class="paper-summary">Visual navigation is fundamental to autonomous systems, yet generating reliable trajectories in cluttered and uncertain environments remains a core challenge. Recent generative models promise end-to-end synthesis, but their reliance on unstructured noise priors often yields unsafe, inefficient, or unimodal plans that cannot meet real-time requirements. We propose StepNav, a novel framework that bridges this gap by introducing structured, multimodal trajectory priors derived from variational principles. StepNav first learns a geometry-aware success probability field to identify all feasible navigation corridors. These corridors are then used to construct an explicit, multi-modal mixture prior that initializes a conditional flow-matching process. This refinement is formulated as an optimal control problem with explicit smoothness and safety regularization. By replacing unstructured noise with physically-grounded candidates, StepNav generates safer and more efficient plans in significantly fewer steps. Experiments in both simulation and real-world benchmarks demonstrate consistent improvements in robustness, efficiency, and safety over state-of-the-art generative planners, advancing reliable trajectory generation for practical autonomous navigation. The code has been released at https://github.com/LuoXubo/StepNav.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.02590v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Xubo Luo, Aodi Wu, Haodong Han, Xue Wan, Wei Zhang, Leizheng Shu, Ruisuo Wang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.7000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">LLM-Based Behavior Tree Generation for Construction Machinery</h2>
+            <p class="paper-summary">Earthwork operations are facing an increasing demand, while workforce aging and skill loss create a pressing need for automation. ROS2-TMS for Construction, a Cyber-Physical System framework designed to coordinate construction machinery, has been proposed for autonomous operation; however, its reliance on manually designed Behavior Trees (BTs) limits scalability, particularly in scenarios involving heterogeneous machine cooperation. Recent advances in large language models (LLMs) offer new opportunities for task planning and BT generation. However, most existing approaches remain confined to simulations or simple manipulators, with relatively few applications demonstrated in real-world contexts, such as complex construction sites involving multiple machines. This paper proposes an LLM-based workflow for BT generation, introducing synchronization flags to enable safe and cooperative operation. The workflow consists of two steps: high-level planning, where the LLM generates synchronization flags, and BT generation using structured templates. Safety is ensured by planning with parameters stored in the system database. The proposed method is validated in simulation and further demonstrated through real-world experiments, highlighting its potential to advance automation in civil engineering.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01041v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Akinosuke Tsutsumi, Tomoya Itsuka, Yuichiro Kasahara, Tomoya Kouno, Kota Akinari, Genki Yamauchi, Daisuke Endo, Taro Abe, Takeshi Hashimoto, Keiji Nagatani, Ryo Kurazume</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.75, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Learning Adaptive Cross-Embodiment Visuomotor Policy with Contrastive Prompt Orchestration</h2>
+            <p class="paper-summary">Learning adaptive visuomotor policies for embodied agents remains a formidable challenge, particularly when facing cross-embodiment variations such as diverse sensor configurations and dynamic properties. Conventional learning approaches often struggle to separate task-relevant features from domain-specific variations (e.g., lighting, field-of-view, and rotation), leading to poor sample efficiency and catastrophic failure in unseen environments. To bridge this gap, we propose ContrAstive Prompt Orchestration (CAPO), a novel approach for learning visuomotor policies that integrates contrastive prompt learning and adaptive prompt orchestration. For prompt learning, we devise a hybrid contrastive learning strategy that integrates visual, temporal action, and text objectives to establish a pool of learnable prompts, where each prompt induces a visual representation encapsulating fine-grained domain factors. Based on these learned prompts, we introduce an adaptive prompt orchestration mechanism that dynamically aggregates these prompts conditioned on current observations. This enables the agent to adaptively construct optimal state representations by identifying dominant domain factors instantaneously. Consequently, the policy optimization is effectively shielded from irrelevant interference, preventing the common issue of overfitting to source domains. Extensive experiments demonstrate that CAPO significantly outperforms state-of-the-art baselines in sample efficiency and asymptotic performance. Crucially, it exhibits superior zero-shot adaptation across unseen target domains characterized by drastic environmental (e.g., illumination) and physical shifts (e.g., field-of-view and rotation), validating its effectiveness as a viable solution for cross-embodiment visuomotor policy adaptation.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01040v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Yuhang Zhang, Chao Yan, Jiaxi Yu, Jiaping Xiao, Mir Feroskhan</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Offline Discovery of Interpretable Skills from Multi-Task Trajectories</h2>
+            <p class="paper-summary">Hierarchical Imitation Learning is a powerful paradigm for acquiring complex robot behaviors from demonstrations. A central challenge, however, lies in discovering reusable skills from long-horizon, multi-task offline data, especially when the data lacks explicit rewards or subtask annotations. In this work, we introduce LOKI, a three-stage end-to-end learning framework designed for offline skill discovery and hierarchical imitation. The framework commences with a two-stage, weakly supervised skill discovery process: Stage one performs coarse, task-aware macro-segmentation by employing an alignment-enforced Vector Quantized VAE guided by weak task labels. Stage two then refines these segments at a micro-level using a self-supervised sequential model, followed by an iterative clustering process to consolidate skill boundaries. The third stage then leverages these precise boundaries to construct a hierarchical policy within an option-based framework-complete with a learned termination condition beta for explicit skill switching. LOKI achieves high success rates on the challenging D4RL Kitchen benchmark and outperforms standard HIL baselines. Furthermore, we demonstrate that the discovered skills are semantically meaningful, aligning with human intuition, and exhibit compositionality by successfully sequencing them to solve a novel, unseen task.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.01018v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Chongyu Zhu, Mithun Vanniasinghe, Jiayu Chen, Chi-Guhn Lee</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.8500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">HERMES: A Holistic End-to-End Risk-Aware Multimodal Embodied System with Vision-Language Models for Long-Tail Autonomous Driving</h2>
+            <p class="paper-summary">End-to-end autonomous driving models increasingly benefit from large vision--language models for semantic understanding, yet ensuring safe and accurate operation under long-tail conditions remains challenging. These challenges are particularly prominent in long-tail mixed-traffic scenarios, where autonomous vehicles must interact with heterogeneous road users, including human-driven vehicles and vulnerable road users, under complex and uncertain conditions. This paper proposes HERMES, a holistic risk-aware end-to-end multimodal driving framework designed to inject explicit long-tail risk cues into trajectory planning. HERMES employs a foundation-model-assisted annotation pipeline to produce structured Long-Tail Scene Context and Long-Tail Planning Context, capturing hazard-centric cues together with maneuver intent and safety preference, and uses these signals to guide end-to-end planning. HERMES further introduces a Tri-Modal Driving Module that fuses multi-view perception, historical motion cues, and semantic guidance, ensuring risk-aware accurate trajectory planning under long-tail scenarios. Experiments on the real-world long-tail dataset demonstrate that HERMES consistently outperforms representative end-to-end and VLM-driven baselines under long-tail mixed-traffic scenarios. Ablation studies verify the complementary contributions of key components.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00993v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Weizhe Tang, Junwei You, Jiaxi Liu, Zhaoyi Wang, Rui Gan, Zilin Huang, Feng Wei, Bin Ran</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Geometry-Aware Sampling-Based Motion Planning on Riemannian Manifolds</h2>
+            <p class="paper-summary">In many robot motion planning problems, task objectives and physical constraints induce non-Euclidean geometry on the configuration space, yet many planners operate using Euclidean distances that ignore this structure. We address the problem of planning collision-free motions that minimize length under configuration-dependent Riemannian metrics, corresponding to geodesics on the configuration manifold. Conventional numerical methods for computing such paths do not scale well to high-dimensional systems, while sampling-based planners trade scalability for geometric fidelity. To bridge this gap, we propose a sampling-based motion planning framework that operates directly on Riemannian manifolds. We introduce a computationally efficient midpoint-based approximation of the Riemannian geodesic distance and prove that it matches the true Riemannian distance with third-order accuracy. Building on this approximation, we design a local planner that traces the manifold using first-order retractions guided by Riemannian natural gradients. Experiments on a two-link planar arm and a 7-DoF Franka manipulator under a kinetic-energy metric, as well as on rigid-body planning in $\mathrm{SE}(2)$ with non-holonomic motion constraints, demonstrate that our approach consistently produces lower-cost trajectories than Euclidean-based planners and classical numerical geodesic-solver baselines.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00992v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Phone Thiha Kyaw, Jonathan Kelly</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 0.9500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Navigating Simply, Aligning Deeply: Winning Solutions for Mouse vs. AI 2025</h2>
+            <p class="paper-summary">Visual robustness and neural alignment remain critical challenges in developing artificial agents that can match biological vision systems. We present the winning approaches from Team HCMUS_TheFangs for both tracks of the NeurIPS 2025 Mouse vs. AI: Robust Visual Foraging Competition. For Track 1 (Visual Robustness), we demonstrate that architectural simplicity combined with targeted components yields superior generalization, achieving 95.4% final score with a lightweight two-layer CNN enhanced by Gated Linear Units and observation normalization. For Track 2 (Neural Alignment), we develop a deep ResNet-like architecture with 16 convolutional layers and GLU-based gating that achieves top-1 neural prediction performance with 17.8 million parameters. Our systematic analysis of ten model checkpoints trained between 60K to 1.14M steps reveals that training duration exhibits a non-monotonic relationship with performance, with optimal results achieved around 200K steps. Through comprehensive ablation studies and failure case analysis, we provide insights into why simpler architectures excel at visual robustness while deeper models with increased capacity achieve better neural alignment. Our results challenge conventional assumptions about model complexity in visuomotor learning and offer practical guidance for developing robust, biologically-inspired visual agents.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00982v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Phu-Hoa Pham, Chi-Nguyen Tran, Dao Sy Duy Minh, Nguyen Lam Phu Quy, Huynh Trung Kiet</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.0, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Meanshift Shape Formation Control Using Discrete Mass Distribution</h2>
+            <p class="paper-summary">The density-distribution method has recently become a promising paradigm owing to its adaptability to variations in swarm size. However, existing studies face practical challenges in achieving complex shape representation and decentralized implementation. This motivates us to develop a fully decentralized, distribution-based control strategy with the dual capability of forming complex shapes and adapting to swarm-size variations. Specifically, we first propose a discrete mass-distribution function defined over a set of sample points to model swarm formation. In contrast to the continuous density-distribution method, our model eliminates the requirement for defining continuous density functions-a task that is difficult for complex shapes. Second, we design a decentralized meanshift control law to coordinate the swarm's global distribution to fit the sample-point distribution by feeding back mass estimates. The mass estimates for all sample points are achieved by the robots in a decentralized manner via the designed mass estimator. It is shown that the mass estimates of the sample points can asymptotically converge to the true global values. To validate the proposed strategy, we conduct comprehensive simulations and real-world experiments to evaluate the efficiency of complex shape formation and adaptability to swarm-size variations.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00980v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Yichen Cai, Yuan Gao, Pengpeng Li, Wei Wang, Guibin Sun, Jinhu Lü</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.05, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">CLAMP: Contrastive Learning for 3D Multi-View Action-Conditioned Robotic Manipulation Pretraining</h2>
+            <p class="paper-summary">Leveraging pre-trained 2D image representations in behavior cloning policies has achieved great success and has become a standard approach for robotic manipulation. However, such representations fail to capture the 3D spatial information about objects and scenes that is essential for precise manipulation. In this work, we introduce Contrastive Learning for 3D Multi-View Action-Conditioned Robotic Manipulation Pretraining (CLAMP), a novel 3D pre-training framework that utilizes point clouds and robot actions. From the merged point cloud computed from RGB-D images and camera extrinsics, we re-render multi-view four-channel image observations with depth and 3D coordinates, including dynamic wrist views, to provide clearer views of target objects for high-precision manipulation tasks. The pre-trained encoders learn to associate the 3D geometric and positional information of objects with robot action patterns via contrastive learning on large-scale simulated robot trajectories. During encoder pre-training, we pre-train a Diffusion Policy to initialize the policy weights for fine-tuning, which is essential for improving fine-tuning sample efficiency and performance. After pre-training, we fine-tune the policy on a limited amount of task demonstrations using the learned image and action representations. We demonstrate that this pre-training and fine-tuning design substantially improves learning efficiency and policy performance on unseen tasks. Furthermore, we show that CLAMP outperforms state-of-the-art baselines across six simulated tasks and five real-world tasks.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00937v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: I-Chun Arthur Liu, Krzysztof Choromanski, Sandy Huang, Connor Schenck</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Minimal Footprint Grasping Inspired by Ants</h2>
+            <p class="paper-summary">Ants are highly capable of grasping objects in clutter, and we have recently observed that this involves substantial use of their forelegs. The forelegs, more specifically the tarsi, have high friction microstructures (setal pads), are covered in hairs, and have a flexible under-actuated tip. Here we abstract these features to test their functional advantages for a novel low-cost gripper design, suitable for bin-picking applications. In our implementation, the gripper legs are long and slim, with high friction gripping pads, low friction hairs and single-segment tarsus-like structure to mimic the insect's setal pads, hairs, and the tarsi's interactive compliance. Experimental evaluation shows this design is highly robust for grasping a wide variety of individual consumer objects, with all grasp attempts successful. In addition, we demonstrate this design is effective for picking single objects from dense clutter, a task at which ants also show high competence. The work advances grasping technology and shed new light on the mechanical importance of hairy structures and tarsal flexibility in insects.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00935v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Mohamed Sorour, Barbara Webb</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.1500000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">SanD-Planner: Sample-Efficient Diffusion Planner in B-Spline Space for Robust Local Navigation</h2>
+            <p class="paper-summary">The challenge of generating reliable local plans has long hindered practical applications in highly cluttered and dynamic environments. Key fundamental bottlenecks include acquiring large-scale expert demonstrations across diverse scenes and improving learning efficiency with limited data. This paper proposes SanD-Planner, a sample-efficient diffusion-based local planner that conducts depth image-based imitation learning within the clamped B-spline space. By operating within this compact space, the proposed algorithm inherently yields smooth outputs with bounded prediction errors over local supports, naturally aligning with receding-horizon execution. Integration of an ESDF-based safety checker with explicit clearance and time-to-completion metrics further reduces the training burden associated with value-function learning for feasibility assessment. Experiments show that training with $500$ episodes (merely $0.25\%$ of the demonstration scale used by the baseline), SanD-Planner achieves state-of-the-art performance on the evaluated open benchmark, attaining success rates of $90.1\%$ in simulated cluttered environments and $72.0\%$ in indoor simulations. The performance is further proven by demonstrating zero-shot transferability to realistic experimentation in both 2D and 3D scenes. The dataset and pre-trained models will also be open-sourced.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00923v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Jincheng Wang, Lingfan Bao, Tong Yang, Diego Martinez Plasencia, Jianhao Jiao, Dimitrios Kanoulas</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.2000000000000002, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Green-VLA: Staged Vision-Language-Action Model for Generalist Robots</h2>
+            <p class="paper-summary">We introduce Green-VLA, a staged Vision-Language-Action (VLA) framework for real-world deployment on the Green humanoid robot while maintaining generalization across diverse embodiments. Green-VLA follows a five stage curriculum: (L0) foundational VLMs, (L1) multimodal grounding, (R0) multi-embodiment pretraining, (R1) embodiment-specific adaptation, and (R2) reinforcement-learning (RL) policy alignment. We couple a scalable data-processing pipeline (3,000 hours of demonstrations) with temporal alignment and quality filtering, and use a unified, embodiment-aware action interface enabling a single policy to control humanoids, mobile manipulators, and fixed-base arms. At inference, the VLA controller is enhanced with episode-progress prediction, out-of-distribution detection, and joint-prediction-based guidance to improve safety and precise target selection. Experiments on Simpler BRIDGE WidowX and CALVIN ABC-D, as well as real-robot evaluations, show strong generalization and performance gains from RL alignment in success rate, robustness, and long-horizon efficiency.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00919v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: I. Apanasevich, M. Artemyev, R. Babakyan, P. Fedotova, D. Grankin, E. Kupryashin, A. Misailidi, D. Nerus, A. Nutalapati, G. Sidorov, I. Efremov, M. Gerasyov, D. Pikurov, Y. Senchenko, S. Davidenko, D. Kulikov, M. Sultankin, K. Askarbek, O. Shamanin, D. Statovoy, E. Zalyaev, I. Zorin, A. Letkin, E. Rusakov, A. Silchenko, V. Vorobyov, S. Sobolnikov, A. Postnikov</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.25, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">UniMorphGrasp: Diffusion Model with Morphology-Awareness for Cross-Embodiment Dexterous Grasp Generation</h2>
+            <p class="paper-summary">Cross-embodiment dexterous grasping aims to generate stable and diverse grasps for robotic hands with heterogeneous kinematic structures. Existing methods are often tailored to specific hand designs and fail to generalize to unseen hand morphologies outside the training distribution. To address these limitations, we propose \textbf{UniMorphGrasp}, a diffusion-based framework that incorporates hand morphological information into the grasp generation process for unified cross-embodiment grasp synthesis. The proposed approach maps grasps from diverse robotic hands into a unified human-like canonical hand pose representation, providing a common space for learning. Grasp generation is then conditioned on structured representations of hand kinematics, encoded as graphs derived from hand configurations, together with object geometry. In addition, a loss function is introduced that exploits the hierarchical organization of hand kinematics to guide joint-level supervision. Extensive experiments demonstrate that UniMorphGrasp achieves state-of-the-art performance on existing dexterous grasp benchmarks and exhibits strong zero-shot generalization to previously unseen hand structures, enabling scalable and practical cross-embodiment grasp deployment.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00915v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Zhiyuan Wu, Xiangyu Zhang, Zhuo Chen, Jiankang Deng, Rolandos Alexandros Potamias, Shan Luo</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.3, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">RoDiF: Robust Direct Fine-Tuning of Diffusion Policies with Corrupted Human Feedback</h2>
+            <p class="paper-summary">Diffusion policies are a powerful paradigm for robotic control, but fine-tuning them with human preferences is fundamentally challenged by the multi-step structure of the denoising process. To overcome this, we introduce a Unified Markov Decision Process (MDP) formulation that coherently integrates the diffusion denoising chain with environmental dynamics, enabling reward-free Direct Preference Optimization (DPO) for diffusion policies. Building on this formulation, we propose RoDiF (Robust Direct Fine-Tuning), a method that explicitly addresses corrupted human preferences. RoDiF reinterprets the DPO objective through a geometric hypothesis-cutting perspective and employs a conservative cutting strategy to achieve robustness without assuming any specific noise distribution. Extensive experiments on long-horizon manipulation tasks show that RoDiF consistently outperforms state-of-the-art baselines, effectively steering pretrained diffusion policies of diverse architectures to human-preferred modes, while maintaining strong performance even under 30% corrupted preference labels.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00886v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Amitesh Vatsa, Zhixian Xie, Wanxin Jin</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.35, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Learning When to Jump for Off-road Navigation</h2>
+            <p class="paper-summary">Low speed does not always guarantee safety in off-road driving. For instance, crossing a ditch may be risky at a low speed due to the risk of getting stuck, yet safe at a higher speed with a controlled, accelerated jump. Achieving such behavior requires path planning that explicitly models complex motion dynamics, whereas existing methods often neglect this aspect and plan solely based on positions or a fixed velocity. To address this gap, we introduce Motion-aware Traversability (MAT) representation to explicitly model terrain cost conditioned on actual robot motion. Instead of assigning a single scalar score for traversability, MAT models each terrain region as a Gaussian function of velocity. During online planning, we decompose the terrain cost computation into two stages: (1) predict terrain-dependent Gaussian parameters from perception in a single forward pass, (2) efficiently update terrain costs for new velocities inferred from current dynamics by evaluating these functions without repeated inference. We develop a system that integrates MAT to enable agile off-road navigation and evaluate it in both simulated and real-world environments with various obstacles. Results show that MAT achieves real-time efficiency and enhances the performance of off-road navigation, reducing path detours by 75% while maintaining safety across challenging terrains.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00877v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Zhipeng Zhao, Taimeng Fu, Shaoshu Su, Qiwei Du, Ehsan Tarkesh Esfahani, Karthik Dantu, Souma Chowdhury, Chen Wang</p>
+            
+        </motion.div>
+        
+        <motion.div
+            initial="{ opacity: 0, y: 50, scale: 0.9 }"
+            whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            viewport="{ once: true, amount: 0.2 }" /* Trigger when 20% is visible */
+            transition="{ duration: 0.5, delay: 1.4000000000000001, ease: 'easeOut' }"  
+            class="bento-item"
+            data-motion-element
+        >
+            <h2 class="paper-title">Safe Stochastic Explorer: Enabling Safe Goal Driven Exploration in Stochastic Environments and Safe Interaction with Unknown Objects</h2>
+            <p class="paper-summary">Autonomous robots operating in unstructured, safety-critical environments, from planetary exploration to warehouses and homes, must learn to safely navigate and interact with their surroundings despite limited prior knowledge. Current methods for safe control, such as Hamilton-Jacobi Reachability and Control Barrier Functions, assume known system dynamics. Meanwhile existing safe exploration techniques often fail to account for the unavoidable stochasticity inherent when operating in unknown real world environments, such as an exploratory rover skidding over an unseen surface or a household robot pushing around unmapped objects in a pantry. To address this critical gap, we propose Safe Stochastic Explorer (S.S.Explorer) a novel framework for safe, goal-driven exploration under stochastic dynamics. Our approach strategically balances safety and information gathering to reduce uncertainty about safety in the unknown environment. We employ Gaussian Processes to learn the unknown safety function online, leveraging their predictive uncertainty to guide information-gathering actions and provide probabilistic bounds on safety violations. We first present our method for discrete state space environments and then introduce a scalable relaxation to effectively extend this approach to continuous state spaces. Finally we demonstrate how this framework can be naturally applied to ensure safe physical interaction with multiple unknown objects. Extensive validation in simulation and demonstrative hardware experiments showcase the efficacy of our method, representing a step forward toward enabling reliable widespread robot autonomy in complex, uncertain environments.</p>
+            
+            
+
+            
+            
+            
+
+            
+
+            <a href="http://arxiv.org/abs/2602.00868v1" target="_blank" class="paper-link">
+                <i class="fas fa-file-pdf mr-1"></i> Read Paper (PDF)
+            </a>
+            
+            <p class="paper-authors">Authors: Nikhil Uday Shinde, Dylan Hirsch, Michael C. Yip, Sylvia Herbert</p>
             
         </motion.div>
         
     </div>
 
     <footer class="footer">
-        Generated on 2026-02-04 05:12:32 UTC. Powered by <a href="https://github.com/onion-liu" target="_blank">onion-liu</a>.
+        Generated on 2026-02-04 23:37:43 UTC. Powered by <a href="https://github.com/onion-liu" target="_blank">onion-liu</a>.
     </footer>
 
 </body>

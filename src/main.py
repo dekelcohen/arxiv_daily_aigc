@@ -23,13 +23,14 @@ DEFAULT_HTML_DIR = os.path.join(PROJECT_ROOT, 'daily_html')
 DEFAULT_TEMPLATE_DIR = os.path.join(PROJECT_ROOT, 'templates')
 DEFAULT_TEMPLATE_NAME = 'paper_template.html' # Ensure this template exists
 
-def main(target_date: date):
+def main(target_date: date, category: str = "cs.CV"):
     """Main pipeline: fetch, filter, save, generate HTML."""
     logging.info(f"Starting processing for date: {target_date.isoformat()}")
 
-    # --- Determine JSON file path ---
+    # --- Determine JSON file path (per category) ---
     json_filename = f"{target_date.isoformat()}.json"
-    json_filepath = os.path.join(DEFAULT_JSON_DIR, json_filename)
+    json_dir_for_category = os.path.join(DEFAULT_JSON_DIR, category)
+    json_filepath = os.path.join(json_dir_for_category, json_filename)
     logging.info(f"Target JSON file path: {json_filepath}")
 
     # --- Check if the JSON file exists ---
@@ -39,9 +40,9 @@ def main(target_date: date):
     else:
         logging.info(f"JSON file not found: {json_filepath}. Performing fetch and filter.")
         # --- 1. Fetch papers --- #
-        logging.info("Step 1: Fetch arXiv cs.CV papers...")
+        logging.info(f"Step 1: Fetch arXiv {category} papers...")
         # Note: fetch_cv_papers uses UTC dates by default
-        raw_papers = fetch_cv_papers(category='cs.RO', specified_date=target_date)
+        raw_papers = fetch_cv_papers(category=category, specified_date=target_date)
         if not raw_papers:
             logging.warning(f"No papers found or fetch failed on {target_date.isoformat()}.")
             # If fetching fails and no JSON exists, cannot continue
@@ -74,7 +75,7 @@ def main(target_date: date):
             if isinstance(paper.get('updated_date'), datetime):
                 paper['updated_date'] = paper['updated_date'].isoformat()
 
-        os.makedirs(DEFAULT_JSON_DIR, exist_ok=True) # Ensure directory exists
+        os.makedirs(json_dir_for_category, exist_ok=True)  # Ensure category directory exists
         try:
             with open(json_filepath, 'w', encoding='utf-8') as f:
                 json.dump(filtered_papers, f, indent=4, ensure_ascii=False)
@@ -136,6 +137,13 @@ if __name__ == '__main__':
         type=str,
         help='Specify the date to fetch (YYYY-MM-DD). If omitted, uses today\'s UTC date.'
     )
+    parser.add_argument(
+        '--category',
+        type=str,
+        default='cs.CV',
+        help='arXiv category to fetch (e.g., cs.CV). Default: cs.CV.'
+    )
+
 
     args = parser.parse_args()
 
@@ -161,6 +169,6 @@ if __name__ == '__main__':
         # Consider creating a default template here or exit
 
     # Check the past two days to avoid gaps, and generate today's report
-    main(target_date=run_date - timedelta(days=2))
-    main(target_date=run_date - timedelta(days=1))
-    main(target_date=run_date)
+    main(target_date=run_date - timedelta(days=2), category=args.category)
+    main(target_date=run_date - timedelta(days=1), category=args.category)
+    main(target_date=run_date, category=args.category)
