@@ -1,97 +1,97 @@
-import os
+﻿import os
 import json
 import logging
 import argparse
 from datetime import date, datetime, timedelta
 
-# 确保 src 目录在 Python 路径中，以便导入其他模块
-# 这通常在运行脚本时自动处理，或者可以通过设置 PYTHONPATH
-# 或者更好的方式是使用相对导入（如果结构允许）或将项目作为包安装
+# Ensure 'src' is in the Python path to import other modules
+# Usually handled when running scripts, or via PYTHONPATH
+# Prefer relative imports (if structure allows) or install the project as a package
 from scraper import fetch_cv_papers
 from filter import filter_papers_by_topic, rate_papers
 from html_generator import generate_html_from_json
 
-# 配置日志
+# Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# 定义项目根目录
+# Define project root directory
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# 定义默认目录
+# Define default directories
 DEFAULT_JSON_DIR = os.path.join(PROJECT_ROOT, 'daily_json')
 DEFAULT_HTML_DIR = os.path.join(PROJECT_ROOT, 'daily_html')
 DEFAULT_TEMPLATE_DIR = os.path.join(PROJECT_ROOT, 'templates')
-DEFAULT_TEMPLATE_NAME = 'paper_template.html' # 确保此模板存在
+DEFAULT_TEMPLATE_NAME = 'paper_template.html' # Ensure this template exists
 
 def main(target_date: date):
-    """主执行流程：抓取、过滤、保存、生成HTML。"""
-    logging.info(f"开始处理日期: {target_date.isoformat()}")
+    """Main pipeline: fetch, filter, save, generate HTML."""
+    logging.info(f"Starting processing for date: {target_date.isoformat()}")
 
-    # --- 确定 JSON 文件路径 ---
+    # --- Determine JSON file path ---
     json_filename = f"{target_date.isoformat()}.json"
     json_filepath = os.path.join(DEFAULT_JSON_DIR, json_filename)
-    logging.info(f"目标 JSON 文件路径: {json_filepath}")
+    logging.info(f"Target JSON file path: {json_filepath}")
 
-    # --- 检查 JSON 文件是否存在 ---
+    # --- Check if the JSON file exists ---
     if os.path.exists(json_filepath):
-        logging.info(f"找到已存在的 JSON 文件: {json_filepath}。跳过抓取和过滤步骤。")
-        # 不需要加载数据，generate_html_from_json 会直接读取文件
+        logging.info(f"Found existing JSON file: {json_filepath}. Skipping fetch and filter steps.")
+        # No need to load data; generate_html_from_json reads the file directly
     else:
-        logging.info(f"未找到 JSON 文件: {json_filepath}。执行抓取和过滤。")
-        # --- 1. 抓取论文 --- #
-        logging.info("步骤 1: 抓取 ArXiv cs.CV 论文...")
-        # 注意：fetch_cv_papers 内部默认使用 UTC 日期
-        raw_papers = fetch_cv_papers(category='cs.CV', specified_date=target_date)
+        logging.info(f"JSON file not found: {json_filepath}. Performing fetch and filter.")
+        # --- 1. Fetch papers --- #
+        logging.info("Step 1: Fetch arXiv cs.CV papers...")
+        # Note: fetch_cv_papers uses UTC dates by default
+        raw_papers = fetch_cv_papers(category='cs.RO', specified_date=target_date)
         if not raw_papers:
-            logging.warning(f"在 {target_date.isoformat()} 未找到论文或抓取失败。")
-            # 如果抓取失败且无 JSON 文件，则无法继续
+            logging.warning(f"No papers found or fetch failed on {target_date.isoformat()}.")
+            # If fetching fails and no JSON exists, cannot continue
             return
-        logging.info(f"抓取到 {len(raw_papers)} 篇原始论文。")
+        logging.info(f"Fetched {len(raw_papers)} raw papers.")
 
-        # --- 2. 过滤论文、论文打分 --- #
-        logging.info("步骤 2: 使用 AI 过滤论文并打分 (主题: image/video/multimodal generation)...")
-        # 注意：filter_papers_by_topic 依赖 OPENROUTER_API_KEY 环境变量
+        # --- 2. Filter and score papers --- #
+        logging.info("Step 2: Use AI to filter and score papers (topic: image/video/multimodal generation)...")
+        # Note: filter_papers_by_topic depends on the OPENROUTER_API_KEY environment variable
         filtered_papers = filter_papers_by_topic(raw_papers, topic="general image/video/multimodal generation or image/video editing")
         filtered_papers = rate_papers(filtered_papers)
-        # 将filtered_papers按照overall_priority_score降序排序
+        # Sort filtered_papers by overall_priority_score (descending)
         filtered_papers.sort(key=lambda x: x.get('overall_priority_score', 0), reverse=True)
         if not filtered_papers:
-            logging.warning("没有论文通过过滤。将创建空的 JSON 文件。")
-            # 创建一个空列表，以便后续保存为空 JSON
+            logging.warning("No papers passed the filter. Creating an empty JSON file.")
+            # Create an empty list so we can save an empty JSON
             filtered_papers = []
-            # 即使没有过滤后的论文，也可能需要生成一个空的报告，或者在这里停止
-            # 这里我们选择继续，生成一个可能为空的报告
-        logging.info(f"过滤后剩余 {len(filtered_papers)} 篇论文。")
+            # Even with no filtered papers, we may generate an empty report or stop here
+            # We choose to continue and generate a possibly empty report
+            logging.info(f"After filtering, {len(filtered_papers)} papers remain.")
 
-        # --- 3. 保存为 JSON --- #
-        logging.info("步骤 3: 将过滤后的论文保存为 JSON 文件...")
+        # --- 3. Save as JSON --- #
+        logging.info("Step 3: Save filtered papers as a JSON file...")
 
-        # --- 3.1 转换日期为字符串 --- #
-        logging.info("步骤 3.1: 转换日期时间对象为 ISO 格式字符串以便 JSON 序列化...")
+        # --- 3.1 Convert dates to strings --- #
+        logging.info("Step 3.1: Convert datetime objects to ISO strings for JSON serialization...")
         for paper in filtered_papers:
             if isinstance(paper.get('published_date'), datetime):
                 paper['published_date'] = paper['published_date'].isoformat()
             if isinstance(paper.get('updated_date'), datetime):
                 paper['updated_date'] = paper['updated_date'].isoformat()
 
-        os.makedirs(DEFAULT_JSON_DIR, exist_ok=True) # 确保目录存在
+        os.makedirs(DEFAULT_JSON_DIR, exist_ok=True) # Ensure directory exists
         try:
             with open(json_filepath, 'w', encoding='utf-8') as f:
                 json.dump(filtered_papers, f, indent=4, ensure_ascii=False)
-            logging.info(f"过滤后的论文已保存到: {json_filepath}")
+            logging.info(f"Filtered papers saved to: {json_filepath}")
         except IOError as e:
-            logging.error(f"保存 JSON 文件失败: {e}")
-            return # 保存失败则无法继续
+            logging.error(f"Failed to save JSON file: {e}")
+            return # Cannot continue if saving failed
         except Exception as e:
-            logging.error(f"保存 JSON 时发生意外错误: {e}", exc_info=True)
+            logging.error(f"Unexpected error while saving JSON: {e}", exc_info=True)
             return
 
-    # --- 4. 生成 HTML (无论 JSON 是新建还是已存在) --- #
-    logging.info("步骤 4: 从 JSON 文件生成 HTML 报告...")
-    # 再次检查 JSON 文件是否实际存在（以防万一）
+    # --- 4. Generate HTML (whether JSON is new or existing) --- #
+    logging.info("Step 4: Generate HTML report from JSON file...")
+    # Double-check the JSON file actually exists (just in case)
     if not os.path.exists(json_filepath):
-         logging.error(f"无法找到 JSON 文件 '{json_filepath}' 来生成 HTML。")
-         return
+        logging.error(f"Cannot find JSON file '{json_filepath}' to generate HTML.")
+        return
 
     try:
         generate_html_from_json(
@@ -100,41 +100,41 @@ def main(target_date: date):
             template_name=DEFAULT_TEMPLATE_NAME,
             output_dir=DEFAULT_HTML_DIR
         )
-        logging.info(f"HTML 报告已生成在: {DEFAULT_HTML_DIR}")
+        logging.info(f"HTML report generated in: {DEFAULT_HTML_DIR}")
 
-        # --- 5. 更新 reports.json --- #
-        logging.info("步骤 5: 更新根目录下的 reports.json 文件...")
+        # --- 5. Update reports.json --- #
+        logging.info("Step 5: Update reports.json in the project root...")
         reports_json_path = os.path.join(PROJECT_ROOT, 'reports.json')
         try:
             if os.path.exists(DEFAULT_HTML_DIR) and os.path.isdir(DEFAULT_HTML_DIR):
                 html_files = [f for f in os.listdir(DEFAULT_HTML_DIR) if f.endswith('.html')]
-                # 按文件名（日期）降序排序
+                # Sort by filename (date) descending
                 html_files.sort(reverse=True)
                 with open(reports_json_path, 'w', encoding='utf-8') as f:
                     json.dump(html_files, f, indent=4, ensure_ascii=False)
-                logging.info(f"reports.json 已更新，包含 {len(html_files)} 个报告。")
+                logging.info(f"reports.json updated, contains {len(html_files)} reports.")
             else:
-                logging.warning(f"HTML 目录 '{DEFAULT_HTML_DIR}' 不存在，无法生成 reports.json。")
-                # 如果目录不存在，可以选择创建一个空的 reports.json
+                logging.warning(f"HTML directory '{DEFAULT_HTML_DIR}' does not exist; cannot generate reports.json.")
+                # If the directory does not exist, create an empty reports.json
                 with open(reports_json_path, 'w', encoding='utf-8') as f:
                     json.dump([], f, indent=4, ensure_ascii=False)
-                logging.info("已创建空的 reports.json。")
+                logging.info("Created empty reports.json.")
         except Exception as e:
-            logging.error(f"更新 reports.json 时发生错误: {e}", exc_info=True)
+            logging.error(f"Error updating reports.json: {e}", exc_info=True)
 
     except FileNotFoundError:
-        logging.error(f"模板文件 '{DEFAULT_TEMPLATE_NAME}' 未在 '{DEFAULT_TEMPLATE_DIR}' 中找到。")
+            logging.error(f"Template file '{DEFAULT_TEMPLATE_NAME}' not found in '{DEFAULT_TEMPLATE_DIR}'.")
     except Exception as e:
-        logging.error(f"生成 HTML 时发生意外错误: {e}", exc_info=True)
+            logging.error(f"Unexpected error while generating HTML: {e}", exc_info=True)
 
-    logging.info(f"日期 {target_date.isoformat()} 的处理流程完成。")
+    logging.info(f"Processing complete for date {target_date.isoformat()}.")
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='抓取、过滤并生成 arXiv cs.CV 论文的每日报告。')
+    parser = argparse.ArgumentParser(description='Fetch, filter, and generate a daily report for arXiv cs.CV papers.')
     parser.add_argument(
         '--date',
         type=str,
-        help='指定抓取的日期 (YYYY-MM-DD)。如果未指定，当天的 UTC 日期。'
+        help='Specify the date to fetch (YYYY-MM-DD). If omitted, uses today\'s UTC date.'
     )
 
     args = parser.parse_args()
@@ -143,24 +143,24 @@ if __name__ == '__main__':
     if args.date:
         try:
             run_date = datetime.strptime(args.date, '%Y-%m-%d').date()
-            logging.info(f"使用用户指定的日期: {run_date.isoformat()}")
+            logging.info(f"Using user-specified date: {run_date.isoformat()}")
         except ValueError:
-            logging.error("日期格式无效，请使用 YYYY-MM-DD 格式。退出程序。")
+            logging.error("Invalid date format; use YYYY-MM-DD. Exiting.")
             exit(1)
     else:
-        # 如果未指定日期，使用 scraper 中的默认逻辑（当天UTC时间）
-        # 为了保持一致性，我们在这里计算默认日期，并传递给 main 函数
+        # If no date is provided, use the scraper's default logic (today's UTC)
+        # For consistency, compute the default date here and pass it to main
         run_date = date.today()
-        logging.info(f"未指定日期，使用默认日期: {run_date.isoformat()}")
-        # 或者，让 main 函数内部的 fetch_cv_papers 自行处理 None 值，以获取其默认 UTC 日期
-        # run_date = None # 取消注释这行以使用 fetch_cv_papers 的默认日期逻辑
+        logging.info(f"No date specified; using default date: {run_date.isoformat()}")
+        # Alternatively, let fetch_cv_papers handle None to use its default UTC date
+        # run_date = None  # Uncomment to use fetch_cv_papers' default date logic
 
-    # 确保模板目录和文件存在，否则 HTML 生成会失败
+    # Ensure the template directory and file exist; otherwise HTML generation may fail
     if not os.path.exists(DEFAULT_TEMPLATE_DIR) or not os.path.exists(os.path.join(DEFAULT_TEMPLATE_DIR, DEFAULT_TEMPLATE_NAME)):
-        logging.warning(f"模板目录 '{DEFAULT_TEMPLATE_DIR}' 或模板文件 '{DEFAULT_TEMPLATE_NAME}' 不存在。HTML 生成可能会失败。")
-        # 可以考虑在这里创建默认模板或退出
+        logging.warning(f"Template directory '{DEFAULT_TEMPLATE_DIR}' or template file '{DEFAULT_TEMPLATE_NAME}' does not exist. HTML generation may fail.")
+        # Consider creating a default template here or exit
 
-    # 检查过去两天的报告，避免遗漏，并生成当天的报告
+    # Check the past two days to avoid gaps, and generate today's report
     main(target_date=run_date - timedelta(days=2))
     main(target_date=run_date - timedelta(days=1))
     main(target_date=run_date)
