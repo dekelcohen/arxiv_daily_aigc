@@ -94,28 +94,30 @@ def main(target_date: date, category: str = "cs.CV"):
         logging.error(f"Cannot find JSON file '{json_filepath}' to generate HTML.")
         return
 
+    html_dir_for_category = os.path.join(DEFAULT_HTML_DIR, category)
+    os.makedirs(html_dir_for_category, exist_ok=True)
     try:
         generate_html_from_json(
             json_file_path=json_filepath,
             template_dir=DEFAULT_TEMPLATE_DIR,
             template_name=DEFAULT_TEMPLATE_NAME,
-            output_dir=DEFAULT_HTML_DIR
+            output_dir=html_dir_for_category
         )
-        logging.info(f"HTML report generated in: {DEFAULT_HTML_DIR}")
+        logging.info(f"HTML report generated in: {html_dir_for_category}")
 
         # --- 5. Update reports.json --- #
         logging.info("Step 5: Update reports.json in the project root...")
         reports_json_path = os.path.join(PROJECT_ROOT, 'reports.json')
         try:
-            if os.path.exists(DEFAULT_HTML_DIR) and os.path.isdir(DEFAULT_HTML_DIR):
-                html_files = [f for f in os.listdir(DEFAULT_HTML_DIR) if f.endswith('.html')]
+            if os.path.exists(html_dir_for_category) and os.path.isdir(html_dir_for_category):
+                html_files = [os.path.join(category, f) for f in os.listdir(html_dir_for_category) if f.endswith('.html')]
                 # Sort by filename (date) descending
                 html_files.sort(reverse=True)
                 with open(reports_json_path, 'w', encoding='utf-8') as f:
                     json.dump(html_files, f, indent=4, ensure_ascii=False)
                 logging.info(f"reports.json updated, contains {len(html_files)} reports.")
             else:
-                logging.warning(f"HTML directory '{DEFAULT_HTML_DIR}' does not exist; cannot generate reports.json.")
+                logging.warning(f"HTML directory '{html_dir_for_category}' does not exist; cannot generate reports.json.")
                 # If the directory does not exist, create an empty reports.json
                 with open(reports_json_path, 'w', encoding='utf-8') as f:
                     json.dump([], f, indent=4, ensure_ascii=False)
