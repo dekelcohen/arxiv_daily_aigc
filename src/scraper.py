@@ -84,10 +84,10 @@ if __name__ == '__main__':
     # Note: Using a future date like 2025 will likely return 0 results unless arXiv data exists for it.
     # Use a recent past date for better testing.
     # example_date = date.today() - timedelta(days=4) # Example: 4 days ago
-    example_date = date(2025, 4, 26) # Or a specific past date known to have papers
+    example_date = date(2026, 2, 4) # Or a specific past date known to have papers
 
     logging.info(f"Fetching papers for {example_date.strftime('%Y-%m-%d')}...")
-    latest_papers = fetch_cv_papers(category='cs.CV', max_results=500, specified_date=example_date)
+    latest_papers = fetch_cv_papers(category='cs.RO', max_results=500, specified_date=example_date)
 
     if latest_papers:
         logging.info(f"--- Found {len(latest_papers)} Papers ---")
