@@ -1,0 +1,3 @@
+providers:
+  - provider: arxiv
+    provider_feed: cs.RO

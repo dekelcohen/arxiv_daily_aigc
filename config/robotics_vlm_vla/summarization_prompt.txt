@@ -1,0 +1,47 @@
+Summarize the attached article. extract the following info (using the fields with below) in bullet points 	
+  ) Title: Ex: Hamster - HAMSTER: Hierarchical Action Models For Open-World Robot Manipulation
+  ) Goal: TLDR - 2-4 lines summary of the inputs --> models/main algo/main pipeline phases --> output 
+     ) Ex: VLM finetuned to predict affordance points and paths on 2D image --> draw on image --> 3D VLA finetuned to follow path and points (in addition to text-prompt)  
+  ) Problem: 2 lines about the problem it tries to solve/fix
+  ) Tags: Comma separated of: Zeroshot/OneShot/Fewshot - if requires no / single / few samples, VLM - if uses a VLM model, Finetune-VLM (if finetunes a VLM), VLA (if Vision Language Action model), Auto-Sim-Scene-Generate, Real2Sim-Generate - if Generates Sim scence from Real 3D/2D scans or videos or images, HumanVideos - if learns from Human demo in videos, Imitation Learning, RL (if Reinforcement Learning), AutoReward (if model generates a reward function or trains a reward model). Planning (if model plans and decompose to subtasks), Grasping-Model (if uses specialized Grasping model), MotionPlanner (if uses a motion planner - such as mplib or cuRobo), VideoPrediction - if uses a video prediction model, World-Model (if uses a World-Model), TextPrompt (if task is issued using a textual prompt), GoalImage (if target state is input as image), KeyFrames (if detects and uses several frames of the video to supervise or reward), ImagePrompt (if images are used in prompt other than GoalImage), ContactModel (if a special model to calc contact points is used), KeyPoints (if guidance using Point prompts), 2DPathPrompt (if generates 2DPath on image as part of planning or to guide lower level models), Sim2Real (if trains in Sim and deploys to real world env), DataAugmentation (if augments the collected data visually and/or semantically), PrimitivePolicies (if uses primitive building blocks - either manual prog or RL to construct a larger policy), 3DFeatures - if point clouds, depth, voxels or other 3D features are used), BBox - if Object detector bounding box, Tracking - if Tracker is used, Segmentation - if segmentation models are used (e.g SAM2) 
+  ) Project: url to project website: ex: https://hamster-robot.github.io
+    ) After you extracted the Project: url (above) - search inside it to extract the code, 
+  ) Paper: url to pdf: https://arxiv.org/pdf/2502.05485  
+  ) Video: url to demo video - If avail 
+  ) Method: Description of the pipeline(s) used to perform the tasks, step by step in more details (inputs, prepro, training of models- if avail, inference, post-processing, outputs, feedback/verification/failures retry ) - bullets format 
+    ) Data Collection: Data sources (Web/Videos/Human demos ...), Improving quality and filtering Techniques, Models/APIs/Services used to transform and process the data 
+	) Data Augmentation - detail if augments visual (backgrounds, objects visuals colours and materials, lighting, replace object, move objects, change trajectories ...)
+	  May be in Sim or in 3D scans 
+	) Preprocessing 
+    ) Training 
+	  ) Regularization 
+    ) Inference 
+      ) Test time techniques to improve results (generating candidates, filtering, retry, reflection, self-checks, few-shot, visual prompting...)
+	  ) Tools: If Agentic tools or pre-defined code can be called by an LLM/VLM - specify the list of tools / functions
+	  ) Close-loop: if exist - describe in detail
+	) Usage of lower level models: Perception-Vision, Planning, Motion Planner, Imagine future states (Video/Diffusion ...)  
+    ) Ex: Finetuned RobotPoint (SpatialVLM) with robotics data (bridge, droid, ...) to draw the 2D paths to be used by the small 3D VLA 
+  ) Results:
+    ) Main results, Benchmarks tested, Comparison with baselines. Is it significantly better than baselines ? bullets format 
+  ) Pro: Ex: VLM finetuned on offline non-robotic data (also Sim data). 
+  ) Pro: Ex: VLA has easier and more general task of following a 2d path (but in 3D)
+    ) Note: Seems more general than Motion planning that strictly follow a path - less flexible than VLA
+  ) Con: Limitations or known failures 	
+  ) Dataset: For each dataset (training, test/benchmark): Describe the dataset (if any). What a sample consists of, How the dataset was collected or synth
+  ) Assets: 
+  ) Code: github or other sourcecode url + stars + installation instructions + comperhensive docs or readme if exist + recent activity 
+    ) Search for Code (usually github) url inside the Project: url (extracted above)
+	) Ex: https://github.com/liyi14/HAMSTER_beta 24 stars, installation, no docs, last-commit: 2 month	
+	) Note: If cannot obtain info - say Code: Not found. If certain that code is not avail - say Not Avail
+  ) Models: Models names + desc (number of params, quantization ...) + url for model download (usually huggingface or torchhub or tensorflow hub - but could be Google Drive or github)
+    ) Opt: If finetuned a model - which model they chose to finetune ?
+  ) Hardware: Specify which hardware was used in real world experiments or data collection:
+    ) Robots, Robotics Arms, Sensors and Cameras (DepthCam: RealSense, Zed), Tactile 
+	) Teleop devices: 3D Mouse, VR head display ... 
+  ) Simulator: If used: specify which is it (Ex: pyBullet, MuJoco, SAPIENS, IssacSim ...)	
+  Format: 
+  a) Condensed bullets that I can copy to notepad with * and indented ) for subsections and their subs
+  no linespace between bullets. There is only 1 * bullet - Title, the rest are idented ) + their subs )
+  Use simple characters (no special greek or graphical ones - as the output is used in Notepad
+  b) Do not generate phrases in double quotes ("phrase") - use single quote or none at all
+  c) Do not generate refernces (ex: [1], [8])

@@ -7,11 +7,11 @@ from typing import List, Dict, Optional, Any
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-def fetch_cv_papers(category: str = 'cs.CV', max_results: int = 500, specified_date: Optional[date] = None) -> List[Dict[str, Any]]:
+def fetch_papers(provider_feed: str = 'cs.CV', max_results: int = 500, specified_date: Optional[date] = None) -> List[Dict[str, Any]]:
     """Fetches papers from the specified category submitted on arXiv for a given date.
 
     Args:
-        category (str): The arXiv category (e.g., 'cs.CV', 'cs.AI').
+        provider_feed (str): The arXiv feed/category (e.g., "cs.CV", "cs.AI").
         max_results (int): The maximum number of results to retrieve.
         specified_date (Optional[date]): The specific date to fetch papers for (UTC).
                                          Defaults to today UTC date.
@@ -39,7 +39,7 @@ def fetch_cv_papers(category: str = 'cs.CV', max_results: int = 500, specified_d
     end_time_str = specified_date.strftime('%Y%m%d%H%M')
 
     # Construct the search query
-    query = f'cat:{category} AND submittedDate:[{start_time_str} TO {end_time_str}]'
+    query = f'cat:{provider_feed} AND submittedDate:[{start_time_str} TO {end_time_str}]'
     logging.info(f"Using arXiv query: {query}")
 
     client = arxiv.Client()
@@ -65,12 +65,12 @@ def fetch_cv_papers(category: str = 'cs.CV', max_results: int = 500, specified_d
                 'authors': [author.name for author in result.authors],
             })
             count += 1
-        logging.info(f"Successfully fetched {count} papers submitted on {specified_date.strftime('%Y-%m-%d')} from {category}.")
+        logging.info(f"Successfully fetched {count} papers submitted on {specified_date.strftime('%Y-%m-%d')} from {provider_feed}.")
 
-    except arxiv.arxiv.UnexpectedEmptyPageError as e:
+    except arxiv.UnexpectedEmptyPageError as e:
         logging.warning(f"arXiv query returned an empty page (potentially no results for the date/query): {e}")
         # This might not be a critical error, could just mean no papers found
-    except arxiv.arxiv.HTTPError as e:
+    except arxiv.HTTPError as e:
         logging.error(f"HTTP error during arXiv search: {e}")
     except Exception as e:
         logging.error(f"An unexpected error occurred during arXiv search: {e}", exc_info=True)
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     example_date = date(2026, 2, 4) # Or a specific past date known to have papers
 
     logging.info(f"Fetching papers for {example_date.strftime('%Y-%m-%d')}...")
-    latest_papers = fetch_cv_papers(category='cs.RO', max_results=500, specified_date=example_date)
+    latest_papers = fetch_papers(provider_feed='cs.RO', max_results=500, specified_date=example_date)
 
     if latest_papers:
         logging.info(f"--- Found {len(latest_papers)} Papers ---")
