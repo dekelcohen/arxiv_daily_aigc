@@ -9,6 +9,7 @@ from .scraper import fetch_papers
 from .filter import filter_papers_by_topic, rate_papers, MODEL_NAME as DEFAULT_MODEL_NAME
 from .config import Config
 from .html_generator import generate_html_from_json
+from src.extract_summarize import extract_and_summarize
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -22,8 +23,8 @@ DEFAULT_HTML_DIR = os.path.join(PROJECT_ROOT, 'daily_html')
 DEFAULT_TEMPLATE_DIR = os.path.join(PROJECT_ROOT, 'templates')
 DEFAULT_TEMPLATE_NAME = 'paper_template.html'  # Ensure this template exists
 
-def main(target_date: date, provider_feed: str = "cs.CV", model: str = DEFAULT_MODEL_NAME, config: Config | None = None, filter_prompt_override: str | None = None):
-    """Main pipeline: fetch, filter, save, generate HTML."""
+def main(target_date: date, provider_feed: str = "cs.CV", model: str = DEFAULT_MODEL_NAME, large_model: str | None = None, config: Config | None = None, filter_prompt_override: str | None = None):
+    """Main pipeline: fetch, filter, summarize, save, generate HTML."""
     logging.info(f"Starting processing for date: {target_date.isoformat()} (model={model}, provider_feed={provider_feed})")
 
     # --- Determine JSON file path (per category) ---
@@ -62,6 +63,16 @@ def main(target_date: date, provider_feed: str = "cs.CV", model: str = DEFAULT_M
             logging.warning("No papers passed the filter. Creating an empty JSON file.")
             filtered_papers = []
             logging.info(f"After filtering, {len(filtered_papers)} papers remain.")
+
+        # --- 2.5 Summarize with large model (PDF attachment) --- #
+        summarization_model = (large_model if large_model else model)
+        sum_prompt = (config.summarization_prompt if config and config.summarization_prompt else "Summarize the attached paper succinctly.")
+        logging.info(f"Step 2.5: Summarize {len(filtered_papers)} papers using model '{summarization_model}'.")
+        for idx, p in enumerate(filtered_papers):
+            try:
+                filtered_papers[idx] = extract_and_summarize(p, PROJECT_ROOT, sum_prompt, summarization_model)
+            except Exception as e:
+                logging.error(f"Summarization failed for paper {idx+1}: {e}", exc_info=True)
 
         # --- 3. Save as JSON --- #
         logging.info("Step 3: Save filtered papers as a JSON file...")
@@ -159,8 +170,14 @@ if __name__ == '__main__':
         '--small-language-model', '-small-lm',
         type=str,
         default=DEFAULT_MODEL_NAME,
-        help=("Language model to use. For Azure, prefix with 'azure-' followed by the deployment name; "
+        help=("Language model to use for filtering/scoring. For Azure, prefix with 'azure-' followed by the deployment name; "
               "for OpenRouter, provide the model id (e.g., 'google/gemini-2.0-flash-001').")
+    )
+    parser.add_argument(
+        '--large-language-model', '-large-lm',
+        type=str,
+        default=DEFAULT_MODEL_NAME,
+        help=("Language model to use for PDF summarization. Defaults to the small model if not provided.")
     )
 
     args = parser.parse_args()
@@ -193,10 +210,7 @@ if __name__ == '__main__':
         logging.warning(f"Template directory '{DEFAULT_TEMPLATE_DIR}' or template file '{DEFAULT_TEMPLATE_NAME}' does not exist. HTML generation may fail.")
 
     # Generate reports for the past two days and today
-    main(target_date=run_date - timedelta(days=2), provider_feed=args.provider_feed, model=args.small_language_model, config=config, filter_prompt_override=args.filter_prompt)
-    main(target_date=run_date - timedelta(days=1), provider_feed=args.provider_feed, model=args.small_language_model, config=config, filter_prompt_override=args.filter_prompt)
-    main(target_date=run_date, provider_feed=args.provider_feed, model=args.small_language_model, config=config, filter_prompt_override=args.filter_prompt)
-
-
-
+    main(target_date=run_date - timedelta(days=2), provider_feed=args.provider_feed, model=args.small_language_model, large_model=args.large_language_model, config=config, filter_prompt_override=args.filter_prompt)
+    main(target_date=run_date - timedelta(days=1), provider_feed=args.provider_feed, model=args.small_language_model, large_model=args.large_language_model, config=config, filter_prompt_override=args.filter_prompt)
+    main(target_date=run_date, provider_feed=args.provider_feed, model=args.small_language_model, large_model=args.large_language_model, config=config, filter_prompt_override=args.filter_prompt)
 

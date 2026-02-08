@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 # azure_openai.py
 import os
@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env
 load_dotenv()
 
-def call_llm(messages, azure_deployment_model = None, max_tokens=2048, temperature=0.1):
+def call_llm(messages, azure_deployment_model=None, max_tokens=2048, temperature=0.1, attachments=None):
     """
     Call Azure OpenAI's chat completion endpoint with the given messages and max_tokens.
 
@@ -18,10 +18,14 @@ def call_llm(messages, azure_deployment_model = None, max_tokens=2048, temperatu
         messages (list): List of message objects for the conversation.
         max_tokens (int): Maximum tokens for the response.
         temperature : 0-1
-        
+        attachments: Ignored. Present for API compatibility with non-Azure callers.
 
     Returns:
-        dict: The parsed JSON response from the LLM.
+        str: The assistant message content.
+
+    Notes:
+        - File attachments are not supported via chat/completions in this module.
+          If `attachments` is provided, it will be ignored and a warning printed.
     """
     # Retrieve configuration variables from the environment
     api_key = os.environ['AZURE_OPENAI_API_KEY']
@@ -29,17 +33,19 @@ def call_llm(messages, azure_deployment_model = None, max_tokens=2048, temperatu
     api_version = os.environ['AZURE_OPENAI_API_VERSION']
     if azure_deployment_model is None:
         azure_deployment_model = os.environ['AZURE_OPENAI_DEPLOYMENT_NAME'] # default model
-    
 
     headers = {
         "Content-Type": "application/json",
         "api-key": api_key,
     }
 
+    if attachments:
+        print("[azure_openai] attachments parameter provided but not supported; ignoring.")
+
     # Build the payload
     payload = {
         "messages": messages,
-        "max_completion_tokens": max_tokens,        
+        "max_completion_tokens": max_tokens,
     }
 
     # Construct the Azure OpenAI endpoint URL
@@ -52,7 +58,7 @@ def call_llm(messages, azure_deployment_model = None, max_tokens=2048, temperatu
     try:
         response = requests.post(GPT_ENDPOINT_URL, headers=headers, json=payload)
         response.raise_for_status()  # Raise an error for non-2xx responses
-    except requests.RequestException as e:        
+    except requests.RequestException as e:
         if e.response is not None:
             print("Status Code:", e.response.status_code)
             print("Response Body:", e.response.text)
@@ -60,15 +66,11 @@ def call_llm(messages, azure_deployment_model = None, max_tokens=2048, temperatu
 
     # Parse the JSON response
     response_json = response.json()
-    
 
     # Extract the message content from the first choice
     message_content = response_json["choices"][0]["message"]["content"]
-    
-    # Convert the content string to a JSON object (if necessary)
-    final_response = message_content # json.loads(message_content)
-    
-    return final_response
+
+    return message_content
 
 if __name__ == "__main__":
     messages = [
@@ -95,4 +97,4 @@ if __name__ == "__main__":
     }]
     response = call_llm(messages, azure_deployment_model = 'gpt-5')
     # Handle the response as needed (e.g., print or process)
-    print(response.json())
+    print(response)

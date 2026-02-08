@@ -215,6 +215,9 @@
         >
             <h2 class="paper-title">{{ paper.title }}</h2>
             <p class="paper-summary">{{ paper.summary }}</p>
+            {% if paper.llm_summary %}
+            <p class="paper-tldr"><strong>Summary</strong>: {{ paper.llm_summary }}</p>
+            {% endif %}
             {% if paper.tldr %}
             <p class="paper-tldr"><strong>TLDR</strong>: {{ paper.tldr }}</p>
             {% endif %}
