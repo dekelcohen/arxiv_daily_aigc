@@ -45,7 +45,7 @@ class TestMainRoboticsVLMVLAIntegration(unittest.TestCase):
 
         # --- Invoke main pipeline with real network calls ---
         # main() will fetch, filter/score (LLM may be skipped if no keys), save JSON, generate HTML, update reports.json
-        self.main_module.main(target_date=run_date, provider_feed=provider_feed, config=config)
+        self.main_module.main(target_date=run_date, provider_feed=provider_feed, model='azure-gpt-5-nano', large_model='azure-gpt5', config=config)
 
         # No strict assertions on outputs; focus on cleanup of newly created artifacts
 
@@ -71,4 +71,5 @@ class TestMainRoboticsVLMVLAIntegration(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 
