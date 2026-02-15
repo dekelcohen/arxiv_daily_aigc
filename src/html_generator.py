@@ -40,7 +40,7 @@ def generate_html_from_json(json_file_path: str, template_dir: str, template_nam
         logging.warning(f"Could not extract date from filename {filename}. Using default.")
         today = date.today()
         formatted_date = today.strftime("%Y_%m_%d")
-        page_title = f"ArXiv CS.CV Papers (Image/Video Generation) - {today.strftime('%B %d, %Y')}"
+        page_title = f"ArXiv Papers - {today.strftime('%B %d, %Y')}"
 
 
     generation_time = datetime.now(timezone.utc)

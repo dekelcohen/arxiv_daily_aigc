@@ -2,6 +2,7 @@
 import logging
 from .llm_utils import call_llm_by_model, MODEL_NAME as _DEFAULT_MODEL_NAME
 
+MAX_DOC_TITLE_LEN = 200
 # Re-export MODEL_NAME for backward compatibility
 MODEL_NAME = _DEFAULT_MODEL_NAME
 
@@ -35,14 +36,14 @@ def filter_papers_by_topic(papers: list, topic: str = "image or video or multimo
             f"Answer with only 'yes' or 'no'.\n\nTitle: {title}\nAbstract: {summary}"
         )
 
-        ai_response = call_llm_by_model(prompt, model=model, max_tokens=5, messages=None, attachments=None)
+        ai_response = call_llm_by_model(prompt, model=model, max_tokens=1000, messages=None, attachments=None)
 
         if ai_response is not None:
-            logging.info(f"Paper {i+1}/{len(papers)}: '{title[:50]}...' - LLM reply: {ai_response}")
+            logging.info(f"Paper {i+1}/{len(papers)}: '{title[:MAX_DOC_TITLE_LEN]}...' - LLM reply: {ai_response}")
             if 'yes' in ai_response.lower():
                 filtered_papers.append(paper)
         else:
-            logging.warning(f"No LLM reply for paper '{title[:50]}...'; skipping.")
+            logging.warning(f"No LLM reply for paper '{title[:MAX_DOC_TITLE_LEN]}...'; skipping.")
             continue
 
     logging.info(f"Filtering complete. Found {len(filtered_papers)} papers relevant to '{topic}'.")
@@ -68,7 +69,7 @@ Output should always be in JSON format, strictly compliant with RFC8259.
 Please output the evaluation and explanations in the following JSON format:
 {
   "tldr": "<summary>", // Too Long; Didn't Read. Summarize the paper in one or two brief sentences.
-  "tldr_zh": "<summary>", // Too Long; Didn't Read. Summarize the paper in one or two brief sentences, in Chinese.
+  "tldr_he": "<summary>", // Too Long; Didn't Read. Summarize the paper in one or two brief sentences, in Hebrew.
   "relevance_score": <score>, // Relevance to my research interests
   "novelty_claim_score": <score>, // Degree of novelty claimed in the abstract
   "clarity_score": <score>, // Clarity and completeness of the abstract writing
@@ -105,8 +106,8 @@ def rate_papers(papers: list, model: str | None = None) -> list:
         prompt = rating_prompt_template % (title, summary)
 
         success = False
-        for attempt in range(2):
-            ai_response = call_llm_by_model(prompt, model=model, max_tokens=1000, messages=None, attachments=None)
+        for attempt in range(2):           
+            ai_response = call_llm_by_model(prompt, model=model, max_tokens=5000, messages=None, attachments=None)
 
             if ai_response is not None:
                 try:
