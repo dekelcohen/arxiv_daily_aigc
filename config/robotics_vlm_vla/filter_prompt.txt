@@ -1,1 +1,1 @@
-VLM or VLA (Visual Language Action) models for Robotics / Controllable World models / Collecting robotic data - from Videos or other sources / Simulation for robotics 
+VLM or VLA (Visual Language Action) models for Robotics / Controllable World models / Collecting robotic data - from Videos or other sources / Simulation for robotics / DL/VLM models for Prediction of Pose,Grasp,Articulation,Spatial Understanding /  Robotics Navigation  with DL/VLA/VLMs

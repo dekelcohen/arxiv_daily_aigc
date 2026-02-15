@@ -166,8 +166,7 @@
             color: #475569; /* Changed to Tailwind slate-600 (slightly darker than summary) */
             margin-top: 0.75rem; /* Tailwind mt-3 */
             margin-bottom: 0.75rem; /* Tailwind mb-2 */
-            /* font-style: italic; */
-            font-weight: bold;
+            /* font-style: italic; */            
         }
 
         .paper-rating {
@@ -214,13 +213,14 @@
             data-motion-element
         >
             <h2 class="paper-title">{{ paper.title }}</h2>
+			{% if paper.tldr %}
+            <p class="paper-tldr"><strong>TLDR</strong>: {{ paper.tldr }}</p>
+            {% endif %}
             <p class="paper-summary">{{ paper.summary }}</p>
             {% if paper.llm_summary %}
             <p class="paper-tldr"><strong>Summary</strong>: {{ paper.llm_summary }}</p>
             {% endif %}
-            {% if paper.tldr %}
-            <p class="paper-tldr"><strong>TLDR</strong>: {{ paper.tldr }}</p>
-            {% endif %}
+            
             {% if paper.tldr_zh %}
             <p class="paper-tldr"><strong>TLDR</strong>: {{ paper.tldr_zh }}</p>
             {% endif %}

@@ -3,7 +3,7 @@ Summarize the attached article. extract the following info (using the fields wit
   ) Goal: TLDR - 2-4 lines summary of the inputs --> models/main algo/main pipeline phases --> output 
      ) Ex: VLM finetuned to predict affordance points and paths on 2D image --> draw on image --> 3D VLA finetuned to follow path and points (in addition to text-prompt)  
   ) Problem: 2 lines about the problem it tries to solve/fix
-  ) Tags: Comma separated of: Zeroshot/OneShot/Fewshot - if requires no / single / few samples, VLM - if uses a VLM model, Finetune-VLM (if finetunes a VLM), VLA (if Vision Language Action model), Auto-Sim-Scene-Generate, Real2Sim-Generate - if Generates Sim scence from Real 3D/2D scans or videos or images, HumanVideos - if learns from Human demo in videos, Imitation Learning, RL (if Reinforcement Learning), AutoReward (if model generates a reward function or trains a reward model). Planning (if model plans and decompose to subtasks), Grasping-Model (if uses specialized Grasping model), MotionPlanner (if uses a motion planner - such as mplib or cuRobo), VideoPrediction - if uses a video prediction model, World-Model (if uses a World-Model), TextPrompt (if task is issued using a textual prompt), GoalImage (if target state is input as image), KeyFrames (if detects and uses several frames of the video to supervise or reward), ImagePrompt (if images are used in prompt other than GoalImage), ContactModel (if a special model to calc contact points is used), KeyPoints (if guidance using Point prompts), 2DPathPrompt (if generates 2DPath on image as part of planning or to guide lower level models), Sim2Real (if trains in Sim and deploys to real world env), DataAugmentation (if augments the collected data visually and/or semantically), PrimitivePolicies (if uses primitive building blocks - either manual prog or RL to construct a larger policy), 3DFeatures - if point clouds, depth, voxels or other 3D features are used), BBox - if Object detector bounding box, Tracking - if Tracker is used, Segmentation - if segmentation models are used (e.g SAM2) 
+  ) Tags: Comma separated of: Zeroshot/OneShot/Fewshot - if requires no / single / few samples, VLM - if uses a VLM model, Finetune-VLM (if finetunes a VLM), VLA (if Vision Language Action model), Auto-Sim-Scene-Generate, Real2Sim-Generate - if Generates Sim scence from Real 3D/2D scans or videos or images, HumanVideos - if learns from Human demo in videos, Imitation Learning, RL (if Reinforcement Learning), AutoReward (if model generates a reward function or trains a reward model). Planning (if model plans and decompose to subtasks), Grasping-Model (if uses specialized Grasping model), MotionPlanner (if uses a motion planner - such as mplib or cuRobo), VideoPrediction - if uses a video prediction model, World-Model (if uses a World-Model), TextPrompt (if task is issued using a textual prompt), GoalImage (if target state is input as image), KeyFrames (if detects and uses several frames of the video to supervise or reward), ImagePrompt (if images are used in prompt other than GoalImage), ContactModel (if a special model to calc contact points is used), KeyPoints (if guidance using Point prompts), 2DPathPrompt (if generates 2DPath on image as part of planning or to guide lower level models), Sim2Real (if trains in Sim and deploys to real world env), DataAugmentation (if augments the collected data visually and/or semantically), PrimitivePolicies (if uses primitive building blocks - either manual prog or RL to construct a larger policy), 3DFeatures - if point clouds, depth, voxels or other 3D features are used), BBox - if Object detector bounding box, Tracking - if Tracker is used, Segmentation - if segmentation models are used (e.g SAM2), Navigation (for navigation papers - as opposed to robotic manipulation) 
   ) Project: url to project website: ex: https://hamster-robot.github.io
     ) After you extracted the Project: url (above) - search inside it to extract the code, 
   ) Paper: url to pdf: https://arxiv.org/pdf/2502.05485  
@@ -39,9 +39,21 @@ Summarize the attached article. extract the following info (using the fields wit
     ) Robots, Robotics Arms, Sensors and Cameras (DepthCam: RealSense, Zed), Tactile 
 	) Teleop devices: 3D Mouse, VR head display ... 
   ) Simulator: If used: specify which is it (Ex: pyBullet, MuJoco, SAPIENS, IssacSim ...)	
-  Format: 
-  a) Condensed bullets that I can copy to notepad with * and indented ) for subsections and their subs
-  no linespace between bullets. There is only 1 * bullet - Title, the rest are idented ) + their subs )
-  Use simple characters (no special greek or graphical ones - as the output is used in Notepad
-  b) Do not generate phrases in double quotes ("phrase") - use single quote or none at all
-  c) Do not generate refernces (ex: [1], [8])
+  Format:
+	- Use only inline HTML tags: <strong>, <em>, <span>, <a>, <code>, <br>.
+	- Use <strong> only for top-level section names: Title, Goal, Problem, Tags, Project, Paper, Video, Method, Results, Pro, Con, Dataset, Assets, Code, Models, Hardware, Simulator.
+	- For second- and third-level structure (e.g., Data Collection, Data Augmentation, Training stages, Datasets, Assets lists), use hyphen '-' bullets with indentation via '  ' (two   per indent level).
+	- Indentation example:
+	- Level 1: - Item
+	- Level 2:   - Sub-item
+	- Level 3:     - Sub-sub-item
+	- Do NOT use block-level tags (no <p>, <div>, <ul>, <ol>, <table>, <hr>, <h1>-<h6>).
+	- Do NOT wrap second- or third-level headers in <strong>; only top-level sections may be bold.
+	- Do NOT include surrounding HTML/HEAD/BODY; return only the snippet.
+	- Separate sections with <br> (one top-level section per line). 8-12 lines total.
+	- Use single quotes for HTML attributes (e.g., href='...').
+	- ASCII characters only; no emojis or special symbols.
+	- Do not include citations or references like [1], [8].
+	- Do not wrap phrases in double quotes; use single quotes or none.
+
+  
