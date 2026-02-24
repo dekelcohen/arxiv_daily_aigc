@@ -39,6 +39,7 @@ Summarize the attached article. extract the following info (using the fields wit
     ) Robots, Robotics Arms, Sensors and Cameras (DepthCam: RealSense, Zed), Tactile 
 	) Teleop devices: 3D Mouse, VR head display ... 
   ) Simulator: If used: specify which is it (Ex: pyBullet, MuJoco, SAPIENS, IssacSim ...)	
+  ) References: List of articles referenced that their primary contribution is covered by above Tags section
   Format:
 	- Use only inline HTML tags: <strong>, <em>, <span>, <a>, <code>, <br>.
 	- Use <strong> only for top-level section names: Title, Goal, Problem, Tags, Project, Paper, Video, Method, Results, Pro, Con, Dataset, Assets, Code, Models, Hardware, Simulator.
